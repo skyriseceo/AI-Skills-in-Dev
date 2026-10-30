@@ -1,0 +1,28 @@
+{
+  "expectations": [
+    {
+      "text": "Verdict is 'no skill \u2014 handle directly' (or equivalent): does not force any skill onto a trivial single-file rename",
+      "passed": true,
+      "evidence": "'Verdict: no skill should handle this' \u2014 direct Edit with replace_all recommended."
+    },
+    {
+      "text": "Does not recommend process or meta skills (brainstorming, TDD, planning, skill-creator) for the rename",
+      "passed": true,
+      "evidence": "superpowers brainstorming/TDD/plans explicitly ruled out."
+    },
+    {
+      "text": "Does not attempt to perform the rename itself",
+      "passed": true,
+      "evidence": "'Recommended execution (not performed, per assess only)'."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 33.8
+  }
+}

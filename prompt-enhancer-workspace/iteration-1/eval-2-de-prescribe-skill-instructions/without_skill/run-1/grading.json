@@ -1,0 +1,62 @@
+{
+  "expectations": [
+    {
+      "text": "Rewrite collapses enumerated ALWAYS/NEVER micro-rules into fewer principle-based instructions with stated reasons",
+      "passed": true,
+      "evidence": "Eight absolutes become four themed sections (Planning, Autonomy and safety, Communication, Code quality) with reasons, e.g. 'don't fragment coherent logic just to hit a line count' and 'let unexpected errors propagate to a sensible boundary rather than swallowing them.'"
+    },
+    {
+      "text": "The 'explain your reasoning step by step in your response' instruction is removed or replaced (not kept as-is)",
+      "passed": true,
+      "evidence": "Replaced with: 'Be concise by default. Lead with the outcome; add reasoning only where the decision was non-obvious or the user will need it to review the change.' Change table row 4: 'Reasoning only where the decision is non-obvious.'"
+    },
+    {
+      "text": "The contradiction between 'be concise' and 'extensive comments explaining each line' is identified and resolved",
+      "passed": true,
+      "evidence": "Identified in the intro: 'several of your rules contradict each other (e.g., \"explain reasoning step by step\" + \"write extensive comments\" vs. \"be concise\")' and resolved via 'Comment the why, not the what' plus table row 7: 'Kept, and made compatible with the rest.'"
+    },
+    {
+      "text": "Defensive blanket rules (try/catch around every function, 10-line function limit, confirm before every edit) are removed or reframed as judgment-based guidance",
+      "passed": true,
+      "evidence": "All three reframed: 'Don't blanket-wrap every function in try/catch'; 'Prefer small, focused functions, but let the logic determine the length'; 'Check in first only for: destructive or irreversible actions, changes outside the requested scope... anything touching secrets, auth, payments, or data migrations.'"
+    },
+    {
+      "text": "Rewritten file contains no ALL-CAPS ALWAYS/NEVER/MUST directives (or only for genuine invariants)",
+      "passed": true,
+      "evidence": "The drop-in replacement block contains no ALL-CAPS ALWAYS/NEVER/MUST directives; guidance is conditional sentence-case throughout."
+    },
+    {
+      "text": "Response includes change notes explaining why the old prescriptive style degrades output on capable models",
+      "passed": true,
+      "evidence": "Intro: 'Modern models follow rigid, absolute rules *too* literally... The result is an assistant that's slow, noisy, and produces over-fragmented, over-commented code'; closing principle: 'modern models treat absolutes as literal invariants and will follow them even when they harm the output.' Plus a per-rule change table."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Modern models follow rigid absolute rules too literally, degrading output",
+      "type": "quality",
+      "verified": false,
+      "evidence": "Asserted as the core diagnosis; consistent with the user's own report that the file 'seems to make outputs worse now' but not independently verifiable from these outputs."
+    },
+    {
+      "claim": "Every original rule's intent is preserved in the rewrite",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The 8-row change table maps each original rule to its replacement, and each replacement demonstrably appears in the rewritten file."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "The baseline (without skill) passes all six assertions with a strong, well-organized rewrite, so this eval currently shows no skill lift. Distinctive skill behaviors observed only in the with_skill run \u2014 surfacing inferred intents up front, offering conditional optional additions \u2014 are uncovered by assertions."
+      }
+    ],
+    "overall": "Assertions are sound but not discriminating; both runs score 6/6."
+  }
+}

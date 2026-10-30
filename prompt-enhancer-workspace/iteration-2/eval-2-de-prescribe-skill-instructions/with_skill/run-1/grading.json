@@ -1,0 +1,67 @@
+{
+  "expectations": [
+    {
+      "text": "Rewrite collapses enumerated ALWAYS/NEVER micro-rules into fewer principle-based instructions with stated reasons",
+      "passed": true,
+      "evidence": "Eight micro-rules become four principle paragraphs (plan proportional to task, risk-based confirmation, style with rationale, selective replies). Reasons are embedded, e.g., 'code that needs a comment per line usually needs a rewrite instead'. Change note: 'Collapsed eight absolutes into four principles with reasons.'"
+    },
+    {
+      "text": "The 'explain your reasoning step by step in your response' instruction is removed or replaced (not kept as-is)",
+      "passed": true,
+      "evidence": "Replaced with 'lead with what you did or found and the one decision worth knowing about.' Change note: 'Deleted \"explain your reasoning step by step\" — reasoning models already reason internally; asking for a transcript just bloats responses.'"
+    },
+    {
+      "text": "The contradiction between 'be concise' and 'extensive comments explaining each line' is identified and resolved",
+      "passed": true,
+      "evidence": "Identified in the diagnosis ('Direct contradictions — \"be concise\" vs \"explain your reasoning step by step\" vs \"write extensive comments explaining each line\"') and resolved via a selection principle ('include what changes my next step, drop the rest') plus why-not-what commenting."
+    },
+    {
+      "text": "Defensive blanket rules (try/catch around every function, 10-line function limit, confirm before every edit) are removed or reframed as judgment-based guidance",
+      "passed": true,
+      "evidence": "All three reframed: 'keep functions small enough that each does one clear thing, but don't fragment logic just to hit a line count'; 'Handle errors where something can actually fail ... rather than wrapping everything defensively'; confirmation narrowed to 'destructive or hard-to-reverse actions'."
+    },
+    {
+      "text": "Rewritten file contains no ALL-CAPS ALWAYS/NEVER/MUST directives (or only for genuine invariants)",
+      "passed": true,
+      "evidence": "The fenced rewritten prompt contains zero ALL-CAPS directives; imperatives are lowercase and judgment-scoped ('don't survey options for their own sake', 'Check with me first only for...')."
+    },
+    {
+      "text": "Response includes change notes explaining why the old prescriptive style degrades output on capable models",
+      "passed": true,
+      "evidence": "'## What changed and why' section plus an up-front diagnosis: 'this file was written to compensate for a weaker model's failure modes, and on a modern model those compensations actively degrade output'; ALL-CAPS MUSTs 'were written to constrain a weaker model and now suppress judgment.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Blanket try/catch is the defensive-error-handling anti-pattern that swallows bugs",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Accurate characterization; the rewrite correctly relocates error handling to real failure boundaries (user input, I/O, external calls)."
+    },
+    {
+      "claim": "Assumptions were stated in lieu of clarifying questions",
+      "type": "process",
+      "verified": true,
+      "evidence": "Explicit bulleted assumptions block: original intent inferred, per-edit confirmation treated as a trust guardrail and narrowed, no domain invariants assumed that would justify hard absolutes."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "All assertions passed for both old and new skill versions. The outputs differ mainly in diagnosis depth and assumption labeling; an assertion requiring that inferred original intents behind each dropped rule be preserved (not just deleted) would better separate careful rewrites from aggressive deletion."
+      }
+    ],
+    "overall": "Assertions are well-targeted for this eval type but saturated; both versions clear them comfortably."
+  }
+}

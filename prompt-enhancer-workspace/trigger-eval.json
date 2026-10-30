@@ -1,0 +1,22 @@
+[
+  {"query": "can you make this prompt better before i paste it into my coding assistant: 'refactor the auth module and make it cleaner'. its for our express app, the module is a mess of callbacks", "should_trigger": true},
+  {"query": "I'm writing a system prompt for our customer support bot at Lendly (we're a fintech). Here's what I have: 'You are a helpful support agent. Answer customer questions about loans. Be nice.' It keeps going off script and promising refunds we don't offer. Can you punch it up?", "should_trigger": true},
+  {"query": "enhance this prompt: 'write a blog post about our new feature'", "should_trigger": true},
+  {"query": "my overnight migration agent keeps reporting 'all tests pass' when half of them are red in CI the next morning. here's its system prompt, can you fix whatever is making it lie about progress", "should_trigger": true},
+  {"query": "prompt engineer this for me — 'summarize these meeting notes for the exec team'. I send it every week and the summaries are always too long and miss action items", "should_trigger": true},
+  {"query": "wrote this slash command file like a year ago for an older model and honestly it feels like it makes outputs worse now. full of ALWAYS and NEVER rules. can u modernize it", "should_trigger": true},
+  {"query": "why does my prompt keep producing walls of text? the prompt says 'be detailed and thorough and explain everything step by step'. how should I reword it", "should_trigger": true},
+  {"query": "help me write a good prompt for extracting invoice data from PDFs into JSON — model keeps missing line items and inventing totals. current attempt: 'extract all the data from this invoice'", "should_trigger": true},
+  {"query": "I have two versions of my agent's instructions and I can't tell which one actually performs better. can you A/B test them for me?", "should_trigger": true},
+  {"query": "our internal RAG chatbot's instructions are like 3 pages of MUST and NEVER rules and people say answers got worse after the last model upgrade. can someone review the instructions and trim them", "should_trigger": true},
+  {"query": "write me a python library for managing prompt templates with jinja2, needs versioning and a registry class", "should_trigger": false},
+  {"query": "what's prompt caching and how do I enable it in the anthropic api? we're on the typescript sdk", "should_trigger": false},
+  {"query": "my model responses keep getting cut off mid-sentence, is that a max_tokens thing or something in my prompt config? using streaming", "should_trigger": false},
+  {"query": "improve this README so new contributors actually understand the setup steps, right now it just says 'npm install and run'", "should_trigger": false},
+  {"query": "make my midjourney prompt better: 'cyberpunk city rain neon' — I want more cinematic lighting", "should_trigger": false},
+  {"query": "enhance the error messages in our CLI tool, they currently just print 'error: failed' with no context", "should_trigger": false},
+  {"query": "can you review this PR? it adds a PromptBuilder class to our sdk, mostly worried about the string escaping", "should_trigger": false},
+  {"query": "translate my chatbot's system prompt into spanish and japanese, we're launching in those markets next month", "should_trigger": false},
+  {"query": "how do I defend my chatbot against prompt injection? users are pasting stuff like 'ignore previous instructions' into the support widget", "should_trigger": false},
+  {"query": "summarize these meeting notes for me: [paste] — need it before standup in 20 min", "should_trigger": false}
+]

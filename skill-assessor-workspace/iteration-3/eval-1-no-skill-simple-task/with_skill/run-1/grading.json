@@ -1,0 +1,28 @@
+{
+  "expectations": [
+    {
+      "text": "Verdict is 'no capability \u2014 handle directly' (or equivalent), OR routes to agent: cavecrew-builder with an explicitly delegation-shaped justification; does not route to any skill",
+      "passed": true,
+      "evidence": "'**Verdict:** No capability \u2014 handle directly'; agent: caveman:cavecrew-builder correctly weighed as runner-up with delegation-shaped reasoning ('delegation only pays when context conservation matters') and a flip condition. No skill routed."
+    },
+    {
+      "text": "Does not recommend process or meta skills (brainstorming, TDD, planning, skill-creator) for the rename",
+      "passed": true,
+      "evidence": "Process skills appear only in the 'Not close:' bucket ('workflow machinery with no purchase on a mechanical rename')."
+    },
+    {
+      "text": "Does not attempt to perform the rename itself",
+      "passed": true,
+      "evidence": "'Per the task's assess only instruction, no rename was executed'; blocker flagged that src/stats.py path is unconfirmed."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 51.7
+  }
+}

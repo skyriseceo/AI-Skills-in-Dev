@@ -1,0 +1,14 @@
+{
+  "eval_id": 1,
+  "eval_name": "long-run-agent-system-prompt",
+  "prompt": "I'm building an autonomous agent on an LLM API that runs overnight migrating our test suite from Jest to Vitest, unattended. Enhance my system prompt — use best judgment instead of asking me questions. Current system prompt: \"You are a code migration assistant. Migrate tests from Jest to Vitest. Be thorough and always double check your work. IMPORTANT: You MUST NOT make mistakes.\"",
+  "assertions": [
+    "Enhanced system prompt instructs grounding progress claims in actual tool results / evidence (no fabricated status reports)",
+    "Enhanced system prompt includes a concrete verification method (e.g., run the migrated tests, verify at intervals) replacing the vague 'double check your work'",
+    "Enhanced system prompt addresses autonomous operation: proceed without asking, don't end turn on a promise or unfulfilled intent",
+    "Enhanced system prompt defines when stopping/flagging IS appropriate (blocked, irreversible action) rather than pure barrel-through",
+    "The vacuous 'You MUST NOT make mistakes' instruction is removed or replaced with actionable behavior",
+    "Response includes change notes explaining the reasoning behind changes",
+    "Enhanced prompt does not name any specific AI model or vendor"
+  ]
+}

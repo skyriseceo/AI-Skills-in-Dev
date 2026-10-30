@@ -1,0 +1,77 @@
+{
+  "expectations": [
+    {
+      "text": "Enhanced system prompt instructs grounding progress claims in actual tool results / evidence (no fabricated status reports)",
+      "passed": true,
+      "evidence": "Prompt block: 'Do not report a batch, phase, or the migration as done without pointing to a test run in this session that proves it. If something is unverified, say so in the log and report \u2014 never claim success on inference.'"
+    },
+    {
+      "text": "Enhanced system prompt includes a concrete verification method (e.g., run the migrated tests, verify at intervals) replacing the vague 'double check your work'",
+      "passed": true,
+      "evidence": "'Run Vitest on exactly that batch and get it green', a recorded pre-migration Jest baseline in .migration/baseline.json, and 'Periodically (every ~5 batches) run the full Vitest suite over everything migrated so far.'"
+    },
+    {
+      "text": "Enhanced system prompt addresses autonomous operation: proceed without asking, don't end turn on a promise or unfulfilled intent",
+      "passed": true,
+      "evidence": "'asking \"Should I\u2026?\" or \"Want me to\u2026?\" blocks the work \u2014 never ask; decide and proceed, recording notable decisions in your run log. End your turn only when the migration is complete or you are blocked on something only a human can provide.'"
+    },
+    {
+      "text": "Enhanced system prompt defines when stopping/flagging IS appropriate (blocked, irreversible action) rather than pure barrel-through",
+      "passed": true,
+      "evidence": "'blocked on something only a human can provide'; quarantine protocol after 3 distinct failed fixes; 'If more than 20% of files end up quarantined, stop converting... make the report's top line say the migration is partial and why'; 'Never touch CI/CD publish or deploy configuration.'"
+    },
+    {
+      "text": "The vacuous 'You MUST NOT make mistakes' instruction is removed or replaced with actionable behavior",
+      "passed": true,
+      "evidence": "Phrase absent from the enhanced prompt; notes state: '\"You MUST NOT make mistakes\" \u2014 unactionable and counterproductive... replaced with the thing that actually prevents mistakes: a concrete verification loop... and a rule against claiming success without evidence.'"
+    },
+    {
+      "text": "Response includes change notes explaining the reasoning behind changes",
+      "passed": true,
+      "evidence": "'## Notes on the changes' with 'What was removed and why' and 'Key additions, and the reasoning' sections, e.g. 'without a recorded baseline, the agent can't distinguish its regressions from pre-existing failures.'"
+    },
+    {
+      "text": "Enhanced prompt does not name any specific AI model or vendor",
+      "passed": true,
+      "evidence": "The fenced enhanced-prompt block (lines 5-124) contains no model or vendor names. Model references ('Recent Claude models', 'Claude API', 'Opus 4.7+') appear only in the commentary/operational notes outside the prompt block."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Vitest fake timers don't mock performance or microtasks identically to Jest",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Stated in the migration mapping table; consistent with known Jest/Vitest differences but not verifiable from the run outputs."
+    },
+    {
+      "claim": "Grounded progress claims 'nearly eliminates fabricated status reports on long runs'",
+      "type": "quality",
+      "verified": false,
+      "evidence": "Asserted in the notes without evidence; plausible but an unverified effectiveness claim."
+    },
+    {
+      "claim": "output_config.task_budget (beta) exists on the Claude API",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Operational suggestion outside the prompt; cannot be verified from available materials."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Enhanced prompt does not name any specific AI model or vendor",
+        "reason": "This run names Claude/Opus models in the surrounding commentary while keeping the prompt block clean, and passes. If the intent is vendor-neutral advice overall (not just inside the block), the assertion should say so; otherwise it may under-detect vendor lock-in in delivered guidance."
+      },
+      {
+        "reason": "This run used ~320k tokens vs ~27k for the with_skill run to produce a much longer, highly prescriptive prompt. No assertion penalizes over-prescription or bloat, which is arguably the exact failure mode a prompt-enhancer skill should prevent; consider an assertion bounding prompt length or requiring judgment-based rather than exhaustive step-by-step instructions."
+      }
+    ],
+    "overall": "Both runs pass 7/7; the assertions check presence of good practices but not concision or restraint, so they cannot distinguish the skill's leaner output from the baseline's exhaustive one."
+  }
+}

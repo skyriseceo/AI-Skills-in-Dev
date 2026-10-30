@@ -1,0 +1,13 @@
+{
+  "eval_id": 0,
+  "eval_name": "vague-task-prompt",
+  "prompt": "Can you enhance this prompt for me? I'm going to give it to an AI coding assistant. Don't ask me clarifying questions, just use your best judgment. Here's the prompt: \"make the checkout page better and fix the bugs\". Context: it's a React e-commerce app, the checkout has a coupon field that crashes on empty input, and my boss wants conversion to go up before Black Friday.",
+  "assertions": [
+    "Enhanced prompt is delivered in a clearly marked copy-paste block, separate from commentary",
+    "Enhanced prompt states the intent/goal (raise conversion, Black Friday deadline), not just the task",
+    "Enhanced prompt names the specific known bug (coupon field crashes on empty input)",
+    "Enhanced prompt defines success criteria or scope boundaries (what 'better' means, what's out of scope)",
+    "Response includes change notes explaining what changed and why (not just the rewritten prompt)",
+    "Enhanced prompt does not name any specific AI model or vendor"
+  ]
+}

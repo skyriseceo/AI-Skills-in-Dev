@@ -1,0 +1,13 @@
+{
+  "eval_id": 0,
+  "eval_name": "design-family-tiebreak",
+  "prompt": "I've got a SaaS analytics dashboard at work and honestly it looks like every AI-generated site ever \u2014 same gradients, same cards. I want to redesign it so it feels premium. Which skill or skills should I use for this? Just assess and tell me the plan, don't start the redesign yet.",
+  "assertions": [
+    "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output (e.g. a redesign- or anti-generic-focused skill), not an image-generation or brand-kit skill",
+    "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+    "Assessment only: does not begin the redesign or write any UI code",
+    "Output contains an explicit verdict line stating what runs and in what order",
+    "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+    "Primary pick is design-master \u2014 the explicit-claim winner under the tiebreak ladder (its description names 'AI-generated'/premium and dashboards verbatim; specificity-based redesign-skill must appear only as the rejected runner-up)"
+  ]
+}

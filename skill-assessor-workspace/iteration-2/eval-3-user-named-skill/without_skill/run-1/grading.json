@@ -1,0 +1,33 @@
+{
+  "expectations": [
+    {
+      "text": "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+      "passed": true,
+      "evidence": "'Routing verdict: taste-skill:minimalist-skill\u2026 should be honored as the primary directive'."
+    },
+    {
+      "text": "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+      "passed": true,
+      "evidence": "redesign-skill overlap discussed openly ('shouldn't replace the user's explicit choice; its audit-first habit is worth borrowing informally')."
+    },
+    {
+      "text": "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+      "passed": true,
+      "evidence": "One plan, explicit routing verdict; no either/or menu ('should not be stacked')."
+    },
+    {
+      "text": "Assessment only: no redesign work performed",
+      "passed": true,
+      "evidence": "'No execution was performed.'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 65.8
+  }
+}

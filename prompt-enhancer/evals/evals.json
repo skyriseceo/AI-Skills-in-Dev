@@ -1,0 +1,51 @@
+{
+  "skill_name": "prompt-enhancer",
+  "evals": [
+    {
+      "id": 0,
+      "name": "vague-task-prompt",
+      "prompt": "Can you enhance this prompt for me? I'm going to give it to an AI coding assistant. Don't ask me clarifying questions, just use your best judgment. Here's the prompt: \"make the checkout page better and fix the bugs\". Context: it's a React e-commerce app, the checkout has a coupon field that crashes on empty input, and my boss wants conversion to go up before Black Friday.",
+      "expected_output": "An enhanced prompt that adds intent (conversion goal, deadline), concrete success criteria, the specific known bug, and scope boundaries — delivered as a copy-paste block plus change notes explaining why each change matters.",
+      "files": [],
+      "assertions": [
+        "Enhanced prompt is delivered in a clearly marked copy-paste block, separate from commentary",
+        "Enhanced prompt states the intent/goal (raise conversion, Black Friday deadline), not just the task",
+        "Enhanced prompt names the specific known bug (coupon field crashes on empty input)",
+        "Enhanced prompt defines success criteria or scope boundaries (what 'better' means, what's out of scope)",
+        "Response includes change notes explaining what changed and why (not just the rewritten prompt)",
+        "Enhanced prompt does not name any specific AI model or vendor"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "long-run-agent-system-prompt",
+      "prompt": "I'm building an autonomous agent on an LLM API that runs overnight migrating our test suite from Jest to Vitest, unattended. Enhance my system prompt — use best judgment instead of asking me questions. Current system prompt: \"You are a code migration assistant. Migrate tests from Jest to Vitest. Be thorough and always double check your work. IMPORTANT: You MUST NOT make mistakes.\"",
+      "expected_output": "An enhanced system prompt covering autonomous-run patterns: grounding progress claims in tool results, verification method, when pausing is appropriate, preventing early stopping, replacing 'MUST NOT make mistakes' with actionable verification behavior — with change notes.",
+      "files": [],
+      "assertions": [
+        "Enhanced system prompt instructs grounding progress claims in actual tool results / evidence (no fabricated status reports)",
+        "Enhanced system prompt includes a concrete verification method (e.g., run the migrated tests, verify at intervals) replacing the vague 'double check your work'",
+        "Enhanced system prompt addresses autonomous operation: proceed without asking, don't end turn on a promise or unfulfilled intent",
+        "Enhanced system prompt defines when stopping/flagging IS appropriate (blocked, irreversible action) rather than pure barrel-through",
+        "The vacuous 'You MUST NOT make mistakes' instruction is removed or replaced with actionable behavior",
+        "Response includes change notes explaining the reasoning behind changes",
+        "Enhanced prompt does not name any specific AI model or vendor"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "de-prescribe-skill-instructions",
+      "prompt": "This slash-command instruction file I wrote a year ago for an older AI model seems to make outputs worse now, not better. Enhance it — no need to ask me questions, use your judgment. The file: \"ALWAYS follow these steps EXACTLY: 1. NEVER write any code before making a plan. 2. ALWAYS list at least 5 possible approaches. 3. You MUST ask the user to confirm before every file edit. 4. ALWAYS explain your reasoning step by step in your response. 5. NEVER use functions longer than 10 lines. 6. ALWAYS add try/catch around every function. 7. Be concise. 8. ALWAYS write extensive comments explaining each line.\"",
+      "expected_output": "A de-prescribed rewrite: collapses the enumerated MUSTs into principles with reasons, removes the show-your-reasoning instruction, resolves contradictions (concise vs extensive comments), drops defensive try/catch and arbitrary line limits — with change notes explaining the why.",
+      "files": [],
+      "assertions": [
+        "Rewrite collapses enumerated ALWAYS/NEVER micro-rules into fewer principle-based instructions with stated reasons",
+        "The 'explain your reasoning step by step in your response' instruction is removed or replaced (not kept as-is)",
+        "The contradiction between 'be concise' and 'extensive comments explaining each line' is identified and resolved",
+        "Defensive blanket rules (try/catch around every function, 10-line function limit, confirm before every edit) are removed or reframed as judgment-based guidance",
+        "Rewritten file contains no ALL-CAPS ALWAYS/NEVER/MUST directives (or only for genuine invariants)",
+        "Response includes change notes explaining why the old prescriptive style degrades output on capable models"
+      ]
+    }
+  ]
+}

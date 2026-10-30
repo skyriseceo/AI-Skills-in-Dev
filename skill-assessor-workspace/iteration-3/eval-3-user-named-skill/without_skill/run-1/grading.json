@@ -1,0 +1,33 @@
+{
+  "expectations": [
+    {
+      "text": "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+      "passed": true,
+      "evidence": "'taste-skill:minimalist-skill is the correct primary route \u2014 the user named it explicitly\u2026 should not be substituted.'"
+    },
+    {
+      "text": "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+      "passed": true,
+      "evidence": "redesign-skill flagged as 'arguably a better workflow fit\u2026 recommended as an optional complement to mention, not a silent substitute'."
+    },
+    {
+      "text": "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+      "passed": true,
+      "evidence": "'Routing verdict' names one primary; complement is a mention, not an alternative plan."
+    },
+    {
+      "text": "Assessment only: no redesign work performed",
+      "passed": true,
+      "evidence": "'No execution was performed, per the task.'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 69.8
+  }
+}

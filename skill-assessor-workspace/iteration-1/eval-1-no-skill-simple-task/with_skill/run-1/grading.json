@@ -1,0 +1,28 @@
+{
+  "expectations": [
+    {
+      "text": "Verdict is 'no skill \u2014 handle directly' (or equivalent): does not force any skill onto a trivial single-file rename",
+      "passed": true,
+      "evidence": "'**Verdict:** No skill \u2014 handle directly. This is the textbook \"one-line fix\" case\u2026'"
+    },
+    {
+      "text": "Does not recommend process or meta skills (brainstorming, TDD, planning, skill-creator) for the rename",
+      "passed": true,
+      "evidence": "TDD and brainstorming appear only under 'Considered and rejected' with contract-miss reasons."
+    },
+    {
+      "text": "Does not attempt to perform the rename itself",
+      "passed": true,
+      "evidence": "'Per the assess only instruction, no rename was executed' (agent result); output contains plan only."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 44.9
+  }
+}

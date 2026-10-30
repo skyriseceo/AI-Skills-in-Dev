@@ -1,0 +1,67 @@
+{
+  "expectations": [
+    {
+      "text": "Enhanced prompt is delivered in a clearly marked copy-paste block, separate from commentary",
+      "passed": true,
+      "evidence": "Response has an '## Enhanced prompt' heading followed by a fenced code block containing the full rewritten prompt, with commentary ('What changed and why', 'Optional additions') kept in separate sections outside the fence."
+    },
+    {
+      "text": "Enhanced prompt states the intent/goal (raise conversion, Black Friday deadline), not just the task",
+      "passed": true,
+      "evidence": "Inside the code block: 'I need to improve checkout conversion before Black Friday, so the priority is fixing anything that blocks or discourages a customer from completing a purchase — not a visual redesign.'"
+    },
+    {
+      "text": "Enhanced prompt names the specific known bug (coupon field crashes on empty input)",
+      "passed": true,
+      "evidence": "Inside the code block: 'Start with the known bug: the coupon code field crashes the page when submitted empty. Reproduce it, fix the root cause, and make the field handle empty/whitespace input gracefully.'"
+    },
+    {
+      "text": "Enhanced prompt defines success criteria or scope boundaries (what 'better' means, what's out of scope)",
+      "passed": true,
+      "evidence": "'Better' is defined as removing conversion killers (crashes, dead-end states, confusing validation, data re-entry). Scope boundary: 'Keep changes low-risk and scoped to the checkout flow ... no refactors of shared code or new dependencies unless a fix truly requires it.' Deliverable defined: fix list with conversion rationale plus items found but not touched."
+    },
+    {
+      "text": "Response includes change notes explaining what changed and why (not just the rewritten prompt)",
+      "passed": true,
+      "evidence": "'## What changed and why' section with five bulleted changes, each with rationale, e.g., 'Named the goal (conversion before Black Friday) — \"better\" was doing the work of an unstated objective...'"
+    },
+    {
+      "text": "Enhanced prompt does not name any specific AI model or vendor",
+      "passed": true,
+      "evidence": "The fenced enhanced prompt contains no AI model or vendor names. (Sentry/GA appear only in the 'Optional additions' commentary as the user's own monitoring tools, not AI vendors, and not inside the prompt block.)"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "The rewrite turns 'fix the bugs' into a concrete, verifiable first task",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The prompt specifies reproduce → fix root cause → define graceful empty/whitespace behavior → add a test for the empty-coupon case."
+    },
+    {
+      "claim": "Assumptions were stated since clarifying questions were disallowed",
+      "type": "process",
+      "verified": true,
+      "evidence": "Explicit 'Assumptions I made' paragraph: agent has codebase access, 'bugs' plural = coupon crash plus audit findings, speed-to-safe-deploy over UX overhaul."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "All six assertions passed for both the old and new skill versions, so they no longer discriminate. Consider adding assertions on proportionality (e.g., enhanced prompt stays under a length budget relative to the input) or on explicitly labeled assumptions, which is where the versions actually differ."
+      }
+    ],
+    "overall": "Assertions are sound but saturated; they check presence of structure the skill reliably produces. Differentiating quality now lives in length discipline and assumption handling."
+  }
+}

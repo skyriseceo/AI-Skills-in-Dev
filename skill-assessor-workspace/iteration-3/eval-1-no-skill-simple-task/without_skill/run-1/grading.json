@@ -1,0 +1,28 @@
+{
+  "expectations": [
+    {
+      "text": "Verdict is 'no capability \u2014 handle directly' (or equivalent), OR routes to agent: cavecrew-builder with an explicitly delegation-shaped justification; does not route to any skill",
+      "passed": true,
+      "evidence": "'Verdict: no skill should handle this \u2014 execute directly with built-in tools.'"
+    },
+    {
+      "text": "Does not recommend process or meta skills for the rename",
+      "passed": true,
+      "evidence": "superpowers/build ruled out as 'for feature or multi-step work'."
+    },
+    {
+      "text": "Does not attempt to perform the rename itself",
+      "passed": true,
+      "evidence": "Assessment only; execution plan described, not run."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 30.9
+  }
+}

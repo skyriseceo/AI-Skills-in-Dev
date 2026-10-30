@@ -1,0 +1,33 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output (e.g. a redesign- or anti-generic-focused skill), not an image-generation or brand-kit skill",
+      "passed": true,
+      "evidence": "Primary pick is design-master ('anti-generic quality review', 'feels bland\u2026 AI-generated\u2026 needs to feel premium'); imagegen/brandkit/stitch explicitly rejected as 'wrong output type'."
+    },
+    {
+      "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+      "passed": true,
+      "evidence": "Ten rejections with task-grounded reasons, e.g. redesign-skill 'loses on coverage: design-master claims the user's exact trigger phrase\u2026 and names dashboards explicitly'; minimalist/brutalist 'prescribe a specific aesthetic upfront\u2026 exactly the templated-thinking the user is trying to escape'."
+    },
+    {
+      "text": "Assessment only: does not begin the redesign or write any UI code",
+      "passed": true,
+      "evidence": "Verdict closes with 'this is the assessment only; the redesign has not been started.' No code in output."
+    },
+    {
+      "text": "Output contains an explicit verdict line stating what runs and in what order",
+      "passed": true,
+      "evidence": "'**Verdict:** Run design-master (start in critique/plan mode\u2026 then polish/full-eval), pulling in dataviz when touching any chart\u2026'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 79.6
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "expectations": [
+    {
+      "text": "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+      "passed": true,
+      "evidence": "Plan 1: taste-skill:minimalist-skill \u2014 'the user named it, this is an instruction rather than an open routing question\u2026 not a contract miss'."
+    },
+    {
+      "text": "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+      "passed": true,
+      "evidence": "redesign-skill tension surfaced in rejected list with explicit flip condition ('Would flip if the site turned out large/functionality-heavy')."
+    },
+    {
+      "text": "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+      "passed": true,
+      "evidence": "Single plan; '**Verdict:** Run taste-skill:minimalist-skill alone once the user resolves the missing ./site directory'."
+    },
+    {
+      "text": "Assessment only: no redesign work performed",
+      "passed": true,
+      "evidence": "'No execution was performed, as requested.'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 73.4
+  }
+}

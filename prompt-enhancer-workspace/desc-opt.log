@@ -1,0 +1,116 @@
+Split: 12 train, 8 test (holdout=0.4)
+
+============================================================
+Iteration 1/5
+Description: Analyze and rewrite prompts to get better results from LLMs — task prompts, system prompts, agent scaffolding, and skill/slash-command instructions. Use whenever the user asks to improve, enhance, refine, optimize, or "make better" a prompt, wants help writing a prompt or system prompt, pastes a prompt and asks why it isn't working, or wants their agent/skill instructions reviewed. Also use when the user says "prompt engineer this", "enhance this prompt", or invokes /prompt-enhancer. Supports an optional eval mode via "/prompt-enhancer:run-evals" to A/B test the original vs enhanced prompt.
+============================================================
+Train: 19/36 correct, precision=100% recall=6% accuracy=53% (111.5s)
+  [FAIL] rate=0/3 expected=True: why does my prompt keep producing walls of text? the prompt 
+  [FAIL] rate=1/3 expected=True: wrote this slash command file like a year ago for an older m
+  [FAIL] rate=0/3 expected=True: prompt engineer this for me — 'summarize these meeting notes
+  [FAIL] rate=0/3 expected=True: our internal RAG chatbot's instructions are like 3 pages of 
+  [FAIL] rate=0/3 expected=True: can you make this prompt better before i paste it into my co
+  [PASS] rate=0/3 expected=False: what's prompt caching and how do I enable it in the anthropi
+  [FAIL] rate=0/3 expected=True: I'm writing a system prompt for our customer support bot at 
+  [PASS] rate=0/3 expected=False: translate my chatbot's system prompt into spanish and japane
+  [PASS] rate=0/3 expected=False: write me a python library for managing prompt templates with
+  [PASS] rate=0/3 expected=False: can you review this PR? it adds a PromptBuilder class to our
+  [PASS] rate=0/3 expected=False: how do I defend my chatbot against prompt injection? users a
+  [PASS] rate=0/3 expected=False: summarize these meeting notes for me: [paste] — need it befo
+Test : 14/24 correct, precision=100% recall=17% accuracy=58% (0.0s)
+  [FAIL] rate=1/3 expected=True: help me write a good prompt for extracting invoice data from
+  [FAIL] rate=0/3 expected=True: enhance this prompt: 'write a blog post about our new featur
+  [FAIL] rate=0/3 expected=True: my overnight migration agent keeps reporting 'all tests pass
+  [FAIL] rate=1/3 expected=True: I have two versions of my agent's instructions and I can't t
+  [PASS] rate=0/3 expected=False: improve this README so new contributors actually understand 
+  [PASS] rate=0/3 expected=False: enhance the error messages in our CLI tool, they currently j
+  [PASS] rate=0/3 expected=False: my model responses keep getting cut off mid-sentence, is tha
+  [PASS] rate=0/3 expected=False: make my midjourney prompt better: 'cyberpunk city rain neon'
+
+Improving description...
+Proposed (30.3s): Use this skill whenever the user wants any prompt or LLM instruction text improved, fixed, reviewed, rewritten, or newly written — task prompts, system prompts, chatbot/support-bot instructions, agent scaffolding, RAG assistant instructions, SKILL.md and slash-command files. Trigger on intent, not wording: the user pastes or describes such a prompt and complains about its output (too long, off-script, misses things, worse after a model upgrade), asks to reword, trim, modernize, punch up, or "make better" the prompt, asks why it isn't working, or says "prompt engineer this" / "enhance this prompt" / /prompt-enhancer. A quoted prompt plus dissatisfaction with its results means use this skill, even if the text is called instructions, a command, or a persona. Do NOT use when the user wants the underlying task itself performed, or asks about LLM APIs, prompt-injection security, translation, or code that merely handles prompts. Includes /prompt-enhancer:run-evals for A/B testing.
+
+============================================================
+Iteration 2/5
+Description: Use this skill whenever the user wants any prompt or LLM instruction text improved, fixed, reviewed, rewritten, or newly written — task prompts, system prompts, chatbot/support-bot instructions, agent scaffolding, RAG assistant instructions, SKILL.md and slash-command files. Trigger on intent, not wording: the user pastes or describes such a prompt and complains about its output (too long, off-script, misses things, worse after a model upgrade), asks to reword, trim, modernize, punch up, or "make better" the prompt, asks why it isn't working, or says "prompt engineer this" / "enhance this prompt" / /prompt-enhancer. A quoted prompt plus dissatisfaction with its results means use this skill, even if the text is called instructions, a command, or a persona. Do NOT use when the user wants the underlying task itself performed, or asks about LLM APIs, prompt-injection security, translation, or code that merely handles prompts. Includes /prompt-enhancer:run-evals for A/B testing.
+============================================================
+Train: 21/36 correct, precision=100% recall=17% accuracy=58% (105.7s)
+  [FAIL] rate=1/3 expected=True: prompt engineer this for me — 'summarize these meeting notes
+  [FAIL] rate=1/3 expected=True: why does my prompt keep producing walls of text? the prompt 
+  [FAIL] rate=0/3 expected=True: our internal RAG chatbot's instructions are like 3 pages of 
+  [FAIL] rate=0/3 expected=True: wrote this slash command file like a year ago for an older m
+  [FAIL] rate=0/3 expected=True: I'm writing a system prompt for our customer support bot at 
+  [PASS] rate=0/3 expected=False: what's prompt caching and how do I enable it in the anthropi
+  [FAIL] rate=1/3 expected=True: can you make this prompt better before i paste it into my co
+  [PASS] rate=0/3 expected=False: translate my chatbot's system prompt into spanish and japane
+  [PASS] rate=0/3 expected=False: write me a python library for managing prompt templates with
+  [PASS] rate=0/3 expected=False: can you review this PR? it adds a PromptBuilder class to our
+  [PASS] rate=0/3 expected=False: how do I defend my chatbot against prompt injection? users a
+  [PASS] rate=0/3 expected=False: summarize these meeting notes for me: [paste] — need it befo
+Test : 13/24 correct, precision=100% recall=8% accuracy=54% (0.0s)
+  [FAIL] rate=0/3 expected=True: help me write a good prompt for extracting invoice data from
+  [FAIL] rate=1/3 expected=True: enhance this prompt: 'write a blog post about our new featur
+  [FAIL] rate=0/3 expected=True: my overnight migration agent keeps reporting 'all tests pass
+  [FAIL] rate=0/3 expected=True: I have two versions of my agent's instructions and I can't t
+  [PASS] rate=0/3 expected=False: improve this README so new contributors actually understand 
+  [PASS] rate=0/3 expected=False: my model responses keep getting cut off mid-sentence, is tha
+  [PASS] rate=0/3 expected=False: enhance the error messages in our CLI tool, they currently j
+  [PASS] rate=0/3 expected=False: make my midjourney prompt better: 'cyberpunk city rain neon'
+
+Improving description...
+Proposed (40.4s): Use for improving, rewriting, debugging, or drafting prompts and LLM instruction text — task prompts, system prompts, chatbot/support-bot and RAG instructions, agent scaffolding, SKILL.md and slash-command files. The tell: the user shows or describes instructions given to a model and wants better results from them. Triggers include "make this prompt better", "punch it up", "prompt engineer this", requests to reword/trim/modernize instructions, and complaints about a prompt's output — too long, walls of text, goes off script, misses things, or got worse after a model upgrade (old ALWAYS/NEVER-heavy instructions). A prompt shown alongside dissatisfaction with what it produces means rewrite the prompt, not perform its task — use this skill. Do not use when the user wants the underlying task itself done, or asks about LLM APIs, prompt-injection defense, translating a prompt, or code that manages prompts. /prompt-enhancer:run-evals A/B tests original vs enhanced.
+
+============================================================
+Iteration 3/5
+Description: Use for improving, rewriting, debugging, or drafting prompts and LLM instruction text — task prompts, system prompts, chatbot/support-bot and RAG instructions, agent scaffolding, SKILL.md and slash-command files. The tell: the user shows or describes instructions given to a model and wants better results from them. Triggers include "make this prompt better", "punch it up", "prompt engineer this", requests to reword/trim/modernize instructions, and complaints about a prompt's output — too long, walls of text, goes off script, misses things, or got worse after a model upgrade (old ALWAYS/NEVER-heavy instructions). A prompt shown alongside dissatisfaction with what it produces means rewrite the prompt, not perform its task — use this skill. Do not use when the user wants the underlying task itself done, or asks about LLM APIs, prompt-injection defense, translating a prompt, or code that manages prompts. /prompt-enhancer:run-evals A/B tests original vs enhanced.
+============================================================
+Train: 20/36 correct, precision=100% recall=11% accuracy=56% (74.8s)
+  [FAIL] rate=1/3 expected=True: prompt engineer this for me — 'summarize these meeting notes
+  [FAIL] rate=0/3 expected=True: why does my prompt keep producing walls of text? the prompt 
+  [FAIL] rate=0/3 expected=True: our internal RAG chatbot's instructions are like 3 pages of 
+  [FAIL] rate=0/3 expected=True: wrote this slash command file like a year ago for an older m
+  [FAIL] rate=1/3 expected=True: can you make this prompt better before i paste it into my co
+  [PASS] rate=0/3 expected=False: what's prompt caching and how do I enable it in the anthropi
+  [FAIL] rate=0/3 expected=True: I'm writing a system prompt for our customer support bot at 
+  [PASS] rate=0/3 expected=False: translate my chatbot's system prompt into spanish and japane
+  [PASS] rate=0/3 expected=False: write me a python library for managing prompt templates with
+  [PASS] rate=0/3 expected=False: can you review this PR? it adds a PromptBuilder class to our
+  [PASS] rate=0/3 expected=False: how do I defend my chatbot against prompt injection? users a
+  [PASS] rate=0/3 expected=False: summarize these meeting notes for me: [paste] — need it befo
+Test : 12/24 correct, precision=100% recall=0% accuracy=50% (0.0s)
+  [FAIL] rate=0/3 expected=True: help me write a good prompt for extracting invoice data from
+  [FAIL] rate=0/3 expected=True: my overnight migration agent keeps reporting 'all tests pass
+  [FAIL] rate=0/3 expected=True: enhance this prompt: 'write a blog post about our new featur
+  [FAIL] rate=0/3 expected=True: I have two versions of my agent's instructions and I can't t
+  [PASS] rate=0/3 expected=False: improve this README so new contributors actually understand 
+  [PASS] rate=0/3 expected=False: enhance the error messages in our CLI tool, they currently j
+  [PASS] rate=0/3 expected=False: my model responses keep getting cut off mid-sentence, is tha
+  [PASS] rate=0/3 expected=False: make my midjourney prompt better: 'cyberpunk city rain neon'
+
+Improving description...
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ah/.claude/plugins/cache/claude-plugins-official/skill-creator/unknown/skills/skill-creator/scripts/run_loop.py", line 328, in <module>
+    main()
+    ~~~~^^
+  File "/home/ah/.claude/plugins/cache/claude-plugins-official/skill-creator/unknown/skills/skill-creator/scripts/run_loop.py", line 293, in main
+    output = run_loop(
+        eval_set=eval_set,
+    ...<11 lines>...
+        log_dir=log_dir,
+    )
+  File "/home/ah/.claude/plugins/cache/claude-plugins-official/skill-creator/unknown/skills/skill-creator/scripts/run_loop.py", line 199, in run_loop
+    new_description = improve_description(
+        skill_name=name,
+    ...<6 lines>...
+        iteration=iteration,
+    )
+  File "/home/ah/.claude/plugins/cache/claude-plugins-official/skill-creator/unknown/skills/skill-creator/scripts/improve_description.py", line 144, in improve_description
+    text = _call_claude(prompt, model)
+  File "/home/ah/.claude/plugins/cache/claude-plugins-official/skill-creator/unknown/skills/skill-creator/scripts/improve_description.py", line 44, in _call_claude
+    raise RuntimeError(
+        f"claude -p exited {result.returncode}\nstderr: {result.stderr}"
+    )
+RuntimeError: claude -p exited 1
+stderr: 

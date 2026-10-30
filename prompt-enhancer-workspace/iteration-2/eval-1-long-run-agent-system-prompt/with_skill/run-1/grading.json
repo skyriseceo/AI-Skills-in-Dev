@@ -1,0 +1,72 @@
+{
+  "expectations": [
+    {
+      "text": "Enhanced system prompt instructs grounding progress claims in actual tool results / evidence (no fabricated status reports)",
+      "passed": true,
+      "evidence": "Reporting section of the enhanced prompt: 'Every claim in your progress notes and final report must trace to a command you actually ran in this session — cite test output, not intention. If something is unverified, say so explicitly.'"
+    },
+    {
+      "text": "Enhanced system prompt includes a concrete verification method (e.g., run the migrated tests, verify at intervals) replacing the vague 'double check your work'",
+      "passed": true,
+      "evidence": "Concrete method: record a full Jest baseline before changes, then 'migrate a file or coherent group, run those tests under Vitest, confirm parity, then move on', with final full-suite parity against the baseline as the definition of done."
+    },
+    {
+      "text": "Enhanced system prompt addresses autonomous operation: proceed without asking, don't end turn on a promise or unfulfilled intent",
+      "passed": true,
+      "evidence": "'You run overnight and unattended: no human can answer questions mid-run, so a question ends the work. For any reversible decision that follows from this goal, use your judgment and proceed.' Plus: 'Before ending your turn, check your last paragraph: if it is a plan or a promise (\"I'll now run…\"), do that work instead of ending.'"
+    },
+    {
+      "text": "Enhanced system prompt defines when stopping/flagging IS appropriate (blocked, irreversible action) rather than pure barrel-through",
+      "passed": true,
+      "evidence": "Blocker section: skip-and-log per file, but 'Halt entirely only if continuing would be destructive or the whole approach is invalid (e.g., Vitest cannot be installed) — and if you halt, write the state and reason to MIGRATION_NOTES.md first.'"
+    },
+    {
+      "text": "The vacuous 'You MUST NOT make mistakes' instruction is removed or replaced with actionable behavior",
+      "passed": true,
+      "evidence": "The phrase does not appear in the enhanced prompt. Change note: 'Replaced \"MUST NOT make mistakes\" with a checkable definition of done — an unattended agent can't be errorless by decree; recording a Jest baseline first and targeting parity gives it something it can actually verify.'"
+    },
+    {
+      "text": "Response includes change notes explaining the reasoning behind changes",
+      "passed": true,
+      "evidence": "'## What changed and why' with eight bullets, each pairing a change with its rationale (blocker policy, incremental commits, evidence-grounded reporting, anti-early-stopping, scoping, removal of ALL-CAPS exhortations)."
+    },
+    {
+      "text": "Enhanced prompt does not name any specific AI model or vendor",
+      "passed": true,
+      "evidence": "The fenced enhanced system prompt contains no AI model or vendor names; only Jest/Vitest (the migration subjects) and generic terms like 'agent' and 'harness'."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Pre-existing test failures are excluded from the agent's responsibility via a recorded baseline",
+      "type": "quality",
+      "verified": true,
+      "evidence": "'Pre-existing failures are not yours to fix — your target is parity with this baseline, not a green board.' This is a substantive improvement not required by any assertion."
+    },
+    {
+      "claim": "Assumptions were stated in lieu of clarifying questions",
+      "type": "process",
+      "verified": true,
+      "evidence": "Explicit 'Assumptions made' paragraph: standard Node repo, git available, pre-existing failures preserved, shell access, skip-and-log blocker policy; flags the two assumptions most likely to need tuning."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "All assertions passed for both old and new skill versions. The versions differ on baseline-parity framing (new) vs 'all passing by morning' (old) — the new framing avoids setting an unachievable goal when pre-existing failures exist. An assertion like 'success criteria account for pre-existing test failures / define a verifiable baseline' would discriminate."
+      }
+    ],
+    "overall": "Assertions are meaningful but saturated at this skill quality level; consider raising the bar toward baseline handling and resumability."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output, not an image-generation or brand-kit skill",
+      "passed": true,
+      "evidence": "Primary design-master; imagegen/brandkit bucketed as 'wrong output mode'."
+    },
+    {
+      "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+      "passed": true,
+      "evidence": "redesign-skill, impeccable, taste-skill each rejected with reason + flip condition."
+    },
+    {
+      "text": "Assessment only: does not begin the redesign or write any UI code",
+      "passed": true,
+      "evidence": "'assessment only for now, per your request' \u2014 no code."
+    },
+    {
+      "text": "Output contains an explicit verdict line stating what runs and in what order",
+      "passed": true,
+      "evidence": "'**Verdict:** Run skill: design-master (plan mode first) as the single primary, layering skill: dataviz when restyling the charts.'"
+    },
+    {
+      "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+      "passed": true,
+      "evidence": "'the single primary'; redesign-skill confined to rejected list with flip condition."
+    },
+    {
+      "text": "Primary pick is design-master \u2014 the explicit-claim winner under the tiebreak ladder (specificity-based redesign-skill must appear only as the rejected runner-up)",
+      "passed": true,
+      "evidence": "Primary is design-master via sharpened rung 3: 'It ties on problem and goal, but design-master's claim covers the framing more completely, naming dashboards and AI-generated verbatim.' redesign-skill appears only as rejected runner-up."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 75.6
+  }
+}

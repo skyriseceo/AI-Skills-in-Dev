@@ -1,0 +1,43 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+      "passed": true,
+      "evidence": "'Phase 1 \u2014 deep-research: \u2026 maps directly to this skill.'"
+    },
+    {
+      "text": "Recommends video-use for the editing/subtitles phase",
+      "passed": true,
+      "evidence": "'Phase 2 \u2014 video-use: the only video-editing skill available.'"
+    },
+    {
+      "text": "Orders research before editing and states what the research phase hands to the editing phase",
+      "passed": true,
+      "evidence": "'The Phase 1 brief becomes the edit spec (hook in first 1\u20133s, caption styling, cut cadence).'"
+    },
+    {
+      "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+      "passed": true,
+      "evidence": "'assessment only, nothing executed'; rejected skills documented with reasons."
+    },
+    {
+      "text": "Flags at least one execution blocker or precondition without resolving it",
+      "passed": true,
+      "evidence": "Missing demo.mp4, silent-audio risk, aspect-ratio confirmation flagged."
+    },
+    {
+      "text": "Rejected list is bounded: at most 4 full rejection entries; remaining candidates collapsed into 'Not close:' bucket lines",
+      "passed": false,
+      "evidence": "Five separate rejection entries (brainstorming, writing-plans, design/taste family, browser tools, dev-lifecycle) with no 'Not close:' bucket convention \u2014 the format the assertion requires comes from the v2 skill, which this baseline run doesn't have."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  },
+  "timing": {
+    "executor_duration_seconds": 55.5
+  }
+}

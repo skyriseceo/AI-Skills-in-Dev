@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+      "passed": true,
+      "evidence": "Plan 1: deep-research \u2014 'cited best-practices findings\u2026 Direct contract match'."
+    },
+    {
+      "text": "Recommends video-use for the editing/subtitles phase",
+      "passed": true,
+      "evidence": "Plan 2: video-use \u2014 'transcribe, cut to 60s, and burn subtitles'."
+    },
+    {
+      "text": "Orders research before editing and states what the research phase hands to the editing phase",
+      "passed": true,
+      "evidence": "Two-phase order fixed; 'Output becomes the editing spec' / 'Phase 1 spec as the creative brief'."
+    },
+    {
+      "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+      "passed": true,
+      "evidence": "'no skills were run'; rejected list includes brainstorming, plain WebSearch, design family, build, dataviz, animation-vocabulary."
+    },
+    {
+      "text": "Flags at least one execution blocker or precondition (e.g. demo.mp4 path unverified, target platform/aspect ratio unspecified) without resolving it",
+      "passed": true,
+      "evidence": "'**Blocker:** demo.mp4 does not exist in the working directory\u2026 Phase 2 cannot run until the raw recording is supplied.'"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 54.9
+  }
+}

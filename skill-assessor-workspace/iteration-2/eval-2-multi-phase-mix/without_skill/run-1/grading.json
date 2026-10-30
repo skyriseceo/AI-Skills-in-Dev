@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+      "passed": true,
+      "evidence": "'1. deep-research \u2014 for the 2026 short-form demo best practices'."
+    },
+    {
+      "text": "Recommends video-use for the editing/subtitles phase",
+      "passed": true,
+      "evidence": "'2. video-use \u2014 for the edit. Its scope matches almost verbatim'."
+    },
+    {
+      "text": "Orders research before editing and states what the research phase hands to the editing phase",
+      "passed": true,
+      "evidence": "'strictly sequential\u2026 the edit brief depends on the research output'; brief parameterized by Phase 1 findings."
+    },
+    {
+      "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+      "passed": true,
+      "evidence": "'No research or editing was executed'; rejected list covers browser automation, design skills, build/superpowers, meta tooling."
+    },
+    {
+      "text": "Flags at least one execution blocker or precondition (e.g. demo.mp4 path unverified, target platform/aspect ratio unspecified) without resolving it",
+      "passed": true,
+      "evidence": "Blockers: missing demo.mp4, unknown narration audio, unconfirmed platform/aspect ratio."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 56.7
+  }
+}

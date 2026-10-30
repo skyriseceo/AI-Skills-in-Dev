@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output (e.g. a redesign- or anti-generic-focused skill), not an image-generation or brand-kit skill",
+      "passed": true,
+      "evidence": "Primary is taste-skill:redesign-skill ('upgrades existing websites and apps to premium quality\u2026 identifies generic AI patterns'); imagegen skills rejected as 'wrong output mode'."
+    },
+    {
+      "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+      "passed": true,
+      "evidence": "design-master rejected with tiebreak rationale and an explicit flip condition ('Would flip on a greenfield build or motion-heavy brief'); minimalist/brutalist rejected for imposing a predetermined aesthetic."
+    },
+    {
+      "text": "Assessment only: does not begin the redesign or write any UI code",
+      "passed": true,
+      "evidence": "'Per the user's just assess instruction, no skill was executed'; no code in output."
+    },
+    {
+      "text": "Output contains an explicit verdict line stating what runs and in what order",
+      "passed": true,
+      "evidence": "'**Verdict:** Run taste-skill:redesign-skill as primary with dataviz governing the chart layer; execution is paused\u2026'"
+    },
+    {
+      "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+      "passed": true,
+      "evidence": "Single primary (redesign-skill) + one genuinely-distinct-layer support (dataviz); runner-up design-master appears only under Considered and rejected."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 75.5
+  }
+}

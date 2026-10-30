@@ -1,0 +1,58 @@
+{
+  "expectations": [
+    {
+      "text": "Rewrite collapses enumerated ALWAYS/NEVER micro-rules into fewer principle-based instructions with stated reasons",
+      "passed": true,
+      "evidence": "Eight numbered absolutes become four principle paragraphs, each with its reason inline, e.g. 'planning overhead should match the size of the decision' and 'don't fragment a coherent function to hit a line count.' Change notes confirm: 'Replaced the eight ALWAYS/NEVER rules with four principles, each carrying its reason.'"
+    },
+    {
+      "text": "The 'explain your reasoning step by step in your response' instruction is removed or replaced (not kept as-is)",
+      "passed": true,
+      "evidence": "Rewrite instead says 'lead with what you did or found, then the key decisions and their rationale.' Notes: 'Dropped \"explain your reasoning step by step\" \u2014 reasoning models already reason internally... Replaced with a decision-rationale ask.'"
+    },
+    {
+      "text": "The contradiction between 'be concise' and 'extensive comments explaining each line' is identified and resolved",
+      "passed": true,
+      "evidence": "Notes: 'Resolved the concision contradiction \u2014 \"be concise\" fought with \"explain step by step\" and \"comment every line\"; the rewrite defines concision as selectivity... and scopes comments to the non-obvious \"why\".' Rewrite: 'Comment the non-obvious \"why\"; skip comments that restate what the code plainly does.'"
+    },
+    {
+      "text": "Defensive blanket rules (try/catch around every function, 10-line function limit, confirm before every edit) are removed or reframed as judgment-based guidance",
+      "passed": true,
+      "evidence": "All three reframed: 'Handle errors where failure is actually possible (user input, I/O, external calls), not defensively around everything'; 'prefer small, focused functions, but let the logic decide the size'; 'Check with me before doing anything risky or hard to reverse... Ordinary edits... don't need confirmation.'"
+    },
+    {
+      "text": "Rewritten file contains no ALL-CAPS ALWAYS/NEVER/MUST directives (or only for genuine invariants)",
+      "passed": true,
+      "evidence": "The fenced rewritten file contains zero ALL-CAPS directives; all guidance is stated in sentence case with conditions."
+    },
+    {
+      "text": "Response includes change notes explaining why the old prescriptive style degrades output on capable models",
+      "passed": true,
+      "evidence": "'capable models generalize from a well-stated rule; rigid enumerated absolutes written for weaker models suppress the judgment that makes current models good, which is exactly why the file was making outputs worse.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Asking for a step-by-step reasoning transcript bloats output and can degrade it on reasoning models",
+      "type": "quality",
+      "verified": false,
+      "evidence": "Stated as rationale in change notes; consistent with common guidance for reasoning models but not verifiable from these outputs."
+    },
+    {
+      "claim": "Inferred intents behind the original eight rules were surfaced up front for user correction",
+      "type": "process",
+      "verified": true,
+      "evidence": "Opening: 'here's what I inferred from the original (correct me if any of this is off): ... think before coding, don't make unilateral risky changes, keep code readable...'"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Assertions map well to the de-prescription task, though the baseline also passes all of them; a discriminating assertion could check that the rewrite preserves each original rule's underlying intent (traceability) rather than just removing absolutes."
+  }
+}

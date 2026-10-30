@@ -1,0 +1,63 @@
+{
+  "expectations": [
+    {
+      "text": "Enhanced system prompt instructs grounding progress claims in actual tool results / evidence (no fabricated status reports)",
+      "passed": true,
+      "evidence": "Prompt block: 'Base every status claim on an actual test run, not on the code looking correct' and 'run the entire suite under Vitest and audit your report against that output.'"
+    },
+    {
+      "text": "Enhanced system prompt includes a concrete verification method (e.g., run the migrated tests, verify at intervals) replacing the vague 'double check your work'",
+      "passed": true,
+      "evidence": "'Migrate incrementally: convert a file or coherent group of files, run those tests with Vitest, fix failures, then move on' and 'A test file counts as migrated only when you have run it under Vitest in this session and seen it pass.'"
+    },
+    {
+      "text": "Enhanced system prompt addresses autonomous operation: proceed without asking, don't end turn on a promise or unfulfilled intent",
+      "passed": true,
+      "evidence": "'no one can answer questions mid-run, so asking and waiting will stall the work' and 'Before ending your turn at any point, check your last paragraph: if it is a plan, a question, or a promise about work you haven't done (\"I'll now\u2026\"), do that work instead.'"
+    },
+    {
+      "text": "Enhanced system prompt defines when stopping/flagging IS appropriate (blocked, irreversible action) rather than pure barrel-through",
+      "passed": true,
+      "evidence": "'End only when the migration is complete and verified, or you are truly blocked on input only a human can provide \u2014 in which case write exactly what you need in MIGRATION_NOTES.md and finish everything not blocked on it'; also skip-and-record protocol for unresolvable files and a hard 'Do not modify production/source code' boundary."
+    },
+    {
+      "text": "The vacuous 'You MUST NOT make mistakes' instruction is removed or replaced with actionable behavior",
+      "passed": true,
+      "evidence": "The phrase does not appear in the enhanced prompt; change notes state: 'Removed \"You MUST NOT make mistakes\" \u2014 unactionable pressure with no behavioral content... Replaced with the concrete mechanism that actually prevents mistakes: incremental convert-run-fix loops.'"
+    },
+    {
+      "text": "Response includes change notes explaining the reasoning behind changes",
+      "passed": true,
+      "evidence": "'## What changed and why' section with eight reasoned bullets, e.g. 'the biggest silent failure mode of overnight migrations is the agent weakening or deleting tests to get green'."
+    },
+    {
+      "text": "Enhanced prompt does not name any specific AI model or vendor",
+      "passed": true,
+      "evidence": "The fenced enhanced-prompt block contains no AI model or vendor names; it speaks of 'You are an autonomous code-migration agent' generically."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "Inferred assumptions (runner command npx vitest run, no source-code fixes wanted) were surfaced for correction rather than hidden",
+      "type": "process",
+      "verified": true,
+      "evidence": "Opening paragraph: 'Correct me if any inference is off (e.g., if you *do* want it to also fix broken source code it finds, or if you use a different runner command than npx vitest run).'"
+    },
+    {
+      "claim": "Author-models are poor critics of their own conversions; a fresh context catches drift",
+      "type": "quality",
+      "verified": false,
+      "evidence": "Stated as rationale for the optional subagent-review addition; plausible heuristic but not verifiable from outputs."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Assertions are well-targeted at real overnight-agent failure modes, though the strong baseline also passes all of them; consider adding an assertion on prompt length/focus to distinguish a lean rewrite from an exhaustive one."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+      "passed": true,
+      "evidence": "'1. skill: deep-research \u2014 Phase 1: sourced best-practices brief.'"
+    },
+    {
+      "text": "Recommends video-use for the editing/subtitles phase",
+      "passed": true,
+      "evidence": "'2. skill: video-use \u2014 Phase 2: the edit itself \u2014 transcribe\u2026 burn subtitles.'"
+    },
+    {
+      "text": "Orders research before editing and states what the research phase hands to the editing phase",
+      "passed": true,
+      "evidence": "'its report becomes the editing spec'; verdict fixes order 'deep-research \u2192 video-use\u2026 research brief feeding the edit'."
+    },
+    {
+      "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+      "passed": true,
+      "evidence": "'no capability was invoked'; contenders WebSearch and agent: general-purpose rejected with reasons."
+    },
+    {
+      "text": "Flags at least one execution blocker or precondition without resolving it",
+      "passed": true,
+      "evidence": "Blockers: missing demo.mp4; unspecified platform/aspect ratio."
+    },
+    {
+      "text": "Rejected list is bounded: at most 4 full rejection entries; remaining candidates collapsed into 'Not close:' bucket lines",
+      "passed": true,
+      "evidence": "Two full contender entries (WebSearch, agent: general-purpose); 'everything else\u2026 is not close' bucket with shared reason."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 59.8
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "user-named-skill",
+  "prompt": "I want you to use taste-skill:minimalist-skill to redo my personal portfolio landing page (it's a plain HTML/CSS site in ./site). Before you start \u2014 assess the skill routing for this, don't execute yet.",
+  "assertions": [
+    "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+    "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+    "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+    "Assessment only: no redesign work performed"
+  ]
+}

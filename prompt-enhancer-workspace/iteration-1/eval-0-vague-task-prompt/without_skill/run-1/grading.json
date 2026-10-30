@@ -1,0 +1,63 @@
+{
+  "expectations": [
+    {
+      "text": "Enhanced prompt is delivered in a clearly marked copy-paste block, separate from commentary",
+      "passed": true,
+      "evidence": "The prompt is introduced with 'ready to paste into an AI coding assistant' and delimited by horizontal rules ('---') on both sides, with commentary in a separate 'Notes on what I changed and why' section. Marginal: it is markdown between separators, not a fenced code block, so the copy boundary is less crisp than a code fence."
+    },
+    {
+      "text": "Enhanced prompt states the intent/goal (raise conversion, Black Friday deadline), not just the task",
+      "passed": true,
+      "evidence": "Prompt block: 'We need the checkout page fixed and improved before Black Friday, with the primary business goal of increasing checkout conversion rate.'"
+    },
+    {
+      "text": "Enhanced prompt names the specific known bug (coupon field crashes on empty input)",
+      "passed": true,
+      "evidence": "Prompt block: 'Critical: coupon field crashes on empty input. Reproduce and fix the crash that occurs when the coupon code field is submitted (or applied) while empty.'"
+    },
+    {
+      "text": "Enhanced prompt defines success criteria or scope boundaries (what 'better' means, what's out of scope)",
+      "passed": true,
+      "evidence": "'Constraints & deliverables' section: 'Don't redesign the visual brand... Don't change pricing, tax, or payment-provider logic beyond what's needed... Summarize at the end: root cause of the coupon crash, every bug found and fixed...'"
+    },
+    {
+      "text": "Response includes change notes explaining what changed and why (not just the rewritten prompt)",
+      "passed": true,
+      "evidence": "'## Notes on what I changed and why' section with five bullets, e.g. 'Split \"better\" into two concrete workstreams \u2014 bug fixes and conversion improvements \u2014 and ordered them'."
+    },
+    {
+      "text": "Enhanced prompt does not name any specific AI model or vendor",
+      "passed": true,
+      "evidence": "The enhanced prompt block contains no AI model or vendor names; it references only React, the app, and generic 'the assistant'."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "The likely root causes listed for the coupon crash (e.g. '.trim() on undefined') are speculative since no codebase was inspected",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The response asserts 'Likely causes to check: calling .trim()/.toUpperCase() on undefined/null...' without access to the code; framed as hypotheses to check, so acceptable, but unverifiable."
+    },
+    {
+      "claim": "Part 2 conversion tactics have 'proven impact on checkout conversion'",
+      "type": "quality",
+      "verified": false,
+      "evidence": "The prompt says 'Prioritize changes with proven impact on checkout conversion' \u2014 the tactics listed are conventional best practices but no evidence is cited; claim is plausible but unverified."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Enhanced prompt is delivered in a clearly marked copy-paste block, separate from commentary",
+        "reason": "This run passes with '---' separators rather than a fenced code block; if the skill specifically requires a fenced/code-block delivery, tighten the assertion to 'fenced code block' so the two formats are distinguished."
+      }
+    ],
+    "overall": "Both runs pass all assertions; the eval does not currently separate skill from baseline behavior."
+  }
+}

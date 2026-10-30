@@ -1,0 +1,33 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+      "passed": true,
+      "evidence": "Plan step 1: 'deep-research \u2014 Phase 1: establish the editorial spec\u2026 cited report on hook timing, caption style, and pacing norms'."
+    },
+    {
+      "text": "Recommends video-use for the editing/subtitles phase",
+      "passed": true,
+      "evidence": "Plan step 2: 'video-use \u2014 Phase 2: executes the edit \u2014 transcribes demo.mp4\u2026 burns in subtitles'."
+    },
+    {
+      "text": "Orders research before editing and states what the research phase hands to the editing phase",
+      "passed": true,
+      "evidence": "'Order matters and is fixed: the research output *is* the edit brief'; explicit Hand-off: 'a concrete edit spec \u2014 hook within first N seconds, caption size/placement\u2026 each point backed by a citation'."
+    },
+    {
+      "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+      "passed": true,
+      "evidence": "'execution is deferred per the user's \"assess first\" instruction'; 11 rejected candidates with reasons."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 68.5
+  }
+}

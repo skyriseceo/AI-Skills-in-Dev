@@ -1,0 +1,451 @@
+{
+  "metadata": {
+    "skill_name": "skill-assessor",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-07-02T14:48:22Z",
+    "evals_run": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 73.3,
+        "tokens": 23986,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output, not an image-generation or brand-kit skill",
+          "passed": true,
+          "evidence": "Primary skill: taste-skill:redesign-skill ('identifies generic AI patterns' named verbatim); imagegen/brandkit bucketed as 'wrong artifact \u2014 images, not code'."
+        },
+        {
+          "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+          "passed": true,
+          "evidence": "design-master, impeccable, soft-skill, frontend-design each rejected with reason + flip condition."
+        },
+        {
+          "text": "Assessment only: does not begin the redesign or write any UI code",
+          "passed": true,
+          "evidence": "'no redesign work was started' \u2014 question-form request, plan is deliverable."
+        },
+        {
+          "text": "Output contains an explicit verdict line stating what runs and in what order",
+          "passed": true,
+          "evidence": "'**Verdict:** Run taste-skill:redesign-skill as primary with dataviz supporting the chart work \u2014 held pending the codebase location.'"
+        },
+        {
+          "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+          "passed": true,
+          "evidence": "Single primary + phase-distinct support; design-master confined to rejected list with explicit flip condition."
+        },
+        {
+          "text": "Primary pick is design-master \u2014 the explicit-claim winner under the tiebreak ladder (specificity-based redesign-skill must appear only as the rejected runner-up)",
+          "passed": false,
+          "evidence": "Primary is taste-skill:redesign-skill. The run applied the ladder explicitly but judged BOTH descriptions to make the explicit claim (redesign-skill names 'identifies generic AI patterns' verbatim), so rung 3 tied and rung 4 (specificity) decided. Same pick as iteration 2 \u2014 routing is stable, just not on the winner this assertion predicted."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 2,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 75.6,
+        "tokens": 25557,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output, not an image-generation or brand-kit skill",
+          "passed": true,
+          "evidence": "Primary design-master; imagegen/brandkit bucketed as 'wrong output mode'."
+        },
+        {
+          "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+          "passed": true,
+          "evidence": "redesign-skill, impeccable, taste-skill each rejected with reason + flip condition."
+        },
+        {
+          "text": "Assessment only: does not begin the redesign or write any UI code",
+          "passed": true,
+          "evidence": "'assessment only for now, per your request' \u2014 no code."
+        },
+        {
+          "text": "Output contains an explicit verdict line stating what runs and in what order",
+          "passed": true,
+          "evidence": "'**Verdict:** Run skill: design-master (plan mode first) as the single primary, layering skill: dataviz when restyling the charts.'"
+        },
+        {
+          "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+          "passed": true,
+          "evidence": "'the single primary'; redesign-skill confined to rejected list with flip condition."
+        },
+        {
+          "text": "Primary pick is design-master \u2014 the explicit-claim winner under the tiebreak ladder (specificity-based redesign-skill must appear only as the rejected runner-up)",
+          "passed": true,
+          "evidence": "Primary is design-master via sharpened rung 3: 'It ties on problem and goal, but design-master's claim covers the framing more completely, naming dashboards and AI-generated verbatim.' redesign-skill appears only as rejected runner-up."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 51.7,
+        "tokens": 21974,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Verdict is 'no capability \u2014 handle directly' (or equivalent), OR routes to agent: cavecrew-builder with an explicitly delegation-shaped justification; does not route to any skill",
+          "passed": true,
+          "evidence": "'**Verdict:** No capability \u2014 handle directly'; agent: caveman:cavecrew-builder correctly weighed as runner-up with delegation-shaped reasoning ('delegation only pays when context conservation matters') and a flip condition. No skill routed."
+        },
+        {
+          "text": "Does not recommend process or meta skills (brainstorming, TDD, planning, skill-creator) for the rename",
+          "passed": true,
+          "evidence": "Process skills appear only in the 'Not close:' bucket ('workflow machinery with no purchase on a mechanical rename')."
+        },
+        {
+          "text": "Does not attempt to perform the rename itself",
+          "passed": true,
+          "evidence": "'Per the task's assess only instruction, no rename was executed'; blocker flagged that src/stats.py path is unconfirmed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 59.8,
+        "tokens": 22724,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+          "passed": true,
+          "evidence": "'1. skill: deep-research \u2014 Phase 1: sourced best-practices brief.'"
+        },
+        {
+          "text": "Recommends video-use for the editing/subtitles phase",
+          "passed": true,
+          "evidence": "'2. skill: video-use \u2014 Phase 2: the edit itself \u2014 transcribe\u2026 burn subtitles.'"
+        },
+        {
+          "text": "Orders research before editing and states what the research phase hands to the editing phase",
+          "passed": true,
+          "evidence": "'its report becomes the editing spec'; verdict fixes order 'deep-research \u2192 video-use\u2026 research brief feeding the edit'."
+        },
+        {
+          "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+          "passed": true,
+          "evidence": "'no capability was invoked'; contenders WebSearch and agent: general-purpose rejected with reasons."
+        },
+        {
+          "text": "Flags at least one execution blocker or precondition without resolving it",
+          "passed": true,
+          "evidence": "Blockers: missing demo.mp4; unspecified platform/aspect ratio."
+        },
+        {
+          "text": "Rejected list is bounded: at most 4 full rejection entries; remaining candidates collapsed into 'Not close:' bucket lines",
+          "passed": true,
+          "evidence": "Two full contender entries (WebSearch, agent: general-purpose); 'everything else\u2026 is not close' bucket with shared reason."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 70.0,
+        "tokens": 23440,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+          "passed": true,
+          "evidence": "'1. skill: taste-skill:minimalist-skill \u2014 sole design direction\u2026 Per the tiebreak ladder, the user's pick is an instruction and routes as told.'"
+        },
+        {
+          "text": "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+          "passed": true,
+          "evidence": "redesign-skill named 'strongest runner-up on merit\u2026 Loses only to the user's explicit pick' with flip condition \u2014 surfaced, not substituted."
+        },
+        {
+          "text": "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+          "passed": true,
+          "evidence": "Single-entry plan; '**Verdict:** Run taste-skill:minimalist-skill alone once ./site is located.'"
+        },
+        {
+          "text": "Assessment only: no redesign work performed",
+          "passed": true,
+          "evidence": "'not executing now per the explicit assess-only request'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 50.4,
+        "tokens": 18208,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output, not an image-generation or brand-kit skill",
+          "passed": true,
+          "evidence": "Anchor design-master + dataviz; image-gen skills set aside."
+        },
+        {
+          "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason",
+          "passed": true,
+          "evidence": "'Set aside' entries with reasons (aesthetic taste-skills 'pre-commit to one look')."
+        },
+        {
+          "text": "Assessment only: does not begin the redesign or write any UI code",
+          "passed": true,
+          "evidence": "'No redesign was started, per instructions.'"
+        },
+        {
+          "text": "Output contains an explicit verdict line stating what runs and in what order",
+          "passed": true,
+          "evidence": "Anchor named + ordered 5-step plan (audit \u2192 direction \u2192 dataviz \u2192 execute \u2192 polish)."
+        },
+        {
+          "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+          "passed": false,
+          "evidence": "Stacks four skills: design-master anchor + dataviz + redesign-skill as 'co-pilot' + emil-design-eng 'optional final polish layer' \u2014 the co-pilot/optional framing is the menu pattern the assertion forbids."
+        },
+        {
+          "text": "Primary pick is design-master \u2014 the explicit-claim winner under the tiebreak ladder",
+          "passed": true,
+          "evidence": "'Anchor skill: design-master' \u2014 matches the predicted winner, though without ladder reasoning (no skill loaded)."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 30.9,
+        "tokens": 17026,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Verdict is 'no capability \u2014 handle directly' (or equivalent), OR routes to agent: cavecrew-builder with an explicitly delegation-shaped justification; does not route to any skill",
+          "passed": true,
+          "evidence": "'Verdict: no skill should handle this \u2014 execute directly with built-in tools.'"
+        },
+        {
+          "text": "Does not recommend process or meta skills for the rename",
+          "passed": true,
+          "evidence": "superpowers/build ruled out as 'for feature or multi-step work'."
+        },
+        {
+          "text": "Does not attempt to perform the rename itself",
+          "passed": true,
+          "evidence": "Assessment only; execution plan described, not run."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 55.5,
+        "tokens": 18738,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+          "passed": true,
+          "evidence": "'Phase 1 \u2014 deep-research: \u2026 maps directly to this skill.'"
+        },
+        {
+          "text": "Recommends video-use for the editing/subtitles phase",
+          "passed": true,
+          "evidence": "'Phase 2 \u2014 video-use: the only video-editing skill available.'"
+        },
+        {
+          "text": "Orders research before editing and states what the research phase hands to the editing phase",
+          "passed": true,
+          "evidence": "'The Phase 1 brief becomes the edit spec (hook in first 1\u20133s, caption styling, cut cadence).'"
+        },
+        {
+          "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+          "passed": true,
+          "evidence": "'assessment only, nothing executed'; rejected skills documented with reasons."
+        },
+        {
+          "text": "Flags at least one execution blocker or precondition without resolving it",
+          "passed": true,
+          "evidence": "Missing demo.mp4, silent-audio risk, aspect-ratio confirmation flagged."
+        },
+        {
+          "text": "Rejected list is bounded: at most 4 full rejection entries; remaining candidates collapsed into 'Not close:' bucket lines",
+          "passed": false,
+          "evidence": "Five separate rejection entries (brainstorming, writing-plans, design/taste family, browser tools, dev-lifecycle) with no 'Not close:' bucket convention \u2014 the format the assertion requires comes from the v2 skill, which this baseline run doesn't have."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 69.8,
+        "tokens": 18982,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+          "passed": true,
+          "evidence": "'taste-skill:minimalist-skill is the correct primary route \u2014 the user named it explicitly\u2026 should not be substituted.'"
+        },
+        {
+          "text": "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+          "passed": true,
+          "evidence": "redesign-skill flagged as 'arguably a better workflow fit\u2026 recommended as an optional complement to mention, not a silent substitute'."
+        },
+        {
+          "text": "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+          "passed": true,
+          "evidence": "'Routing verdict' names one primary; complement is a mention, not an alternative plan."
+        },
+        {
+          "text": "Assessment only: no redesign work performed",
+          "passed": true,
+          "evidence": "'No execution was performed, per the task.'"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.966,
+        "stddev": 0.076,
+        "min": 0.83,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 66.08,
+        "stddev": 10.0542,
+        "min": 51.7,
+        "max": 75.6
+      },
+      "tokens": {
+        "mean": 23536.2,
+        "stddev": 1359.7192,
+        "min": 21974,
+        "max": 25557
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.915,
+        "stddev": 0.0981,
+        "min": 0.83,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 51.65,
+        "stddev": 16.087,
+        "min": 30.9,
+        "max": 69.8
+      },
+      "tokens": {
+        "mean": 18238.5,
+        "stddev": 870.5131,
+        "min": 17026,
+        "max": 18982
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.05",
+      "time_seconds": "+14.4",
+      "tokens": "+5298"
+    }
+  },
+  "notes": [
+    "Analyst pass, iteration 3 (v2 skill): with-skill 96.6% (24/25 incl. recheck), baseline 91.5%. All four v2 changes verified: skill:/agent: prefixes everywhere; eval-1 weighed agent: cavecrew-builder as runner-up with delegation reasoning; bounded rejected lists (eval-2: 11 rejections in it2 \u2192 2 contenders + bucket); question-form stance self-applied without the 'assess only' crutch; ladder applied with rung citations.",
+    "Ladder sharpening after user decision: user chose design-master as intended eval-0 winner. Rung 3 (Explicit claim) gained a within-rung tiebreak \u2014 when several candidates claim explicitly, the fuller match of the user's framing (problem + artifact + goal) wins instead of falling through to specificity. Recheck (eval-0 with_skill run-2): design-master wins 6/6, citing the new rule verbatim; redesign-skill confined to rejected list with flip condition. run-1 (5/6, pre-sharpening) retained for history; aggregate averages both. Baseline failures unchanged: eval-0 four-skill menu (decisiveness is skill-induced), eval-2 missing 'Not close:' bucket format (v2-specific, expected)."
+  ]
+}

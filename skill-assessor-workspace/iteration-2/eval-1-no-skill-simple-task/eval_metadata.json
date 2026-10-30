@@ -1,0 +1,10 @@
+{
+  "eval_id": 1,
+  "eval_name": "no-skill-simple-task",
+  "prompt": "quick one \u2014 i need to rename a variable `usrCnt` to `userCount` in src/stats.py, its used in like 3 places in that one file. which skill should handle this? assess only",
+  "assertions": [
+    "Verdict is 'no skill \u2014 handle directly' (or equivalent): does not force any skill onto a trivial single-file rename",
+    "Does not recommend process or meta skills (brainstorming, TDD, planning, skill-creator) for the rename",
+    "Does not attempt to perform the rename itself"
+  ]
+}

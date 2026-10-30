@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "eval_name": "multi-phase-mix",
+  "prompt": "Here's what I need: first figure out what the current best practices are for short-form product demo videos in 2026 (hook timing, captions, pacing \u2014 with sources), then take my raw screen recording demo.mp4 and cut it into a 60s demo with burned-in subtitles following those practices. What skills should I use and in what order? Assess first, don't execute.",
+  "assertions": [
+    "Recommends deep-research (or the session's research skill) for the best-practices phase",
+    "Recommends video-use for the editing/subtitles phase",
+    "Orders research before editing and states what the research phase hands to the editing phase",
+    "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+    "Flags at least one execution blocker or precondition (e.g. demo.mp4 path unverified, target platform/aspect ratio unspecified) without resolving it",
+    "Rejected list is bounded: at most 4 full rejection entries; remaining discarded candidates collapsed into one or more 'Not close:' bucket lines with a shared reason"
+  ]
+}

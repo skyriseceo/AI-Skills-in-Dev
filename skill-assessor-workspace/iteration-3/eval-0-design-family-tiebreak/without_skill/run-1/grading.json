@@ -1,0 +1,43 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output, not an image-generation or brand-kit skill",
+      "passed": true,
+      "evidence": "Anchor design-master + dataviz; image-gen skills set aside."
+    },
+    {
+      "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason",
+      "passed": true,
+      "evidence": "'Set aside' entries with reasons (aesthetic taste-skills 'pre-commit to one look')."
+    },
+    {
+      "text": "Assessment only: does not begin the redesign or write any UI code",
+      "passed": true,
+      "evidence": "'No redesign was started, per instructions.'"
+    },
+    {
+      "text": "Output contains an explicit verdict line stating what runs and in what order",
+      "passed": true,
+      "evidence": "Anchor named + ordered 5-step plan (audit \u2192 direction \u2192 dataviz \u2192 execute \u2192 polish)."
+    },
+    {
+      "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+      "passed": false,
+      "evidence": "Stacks four skills: design-master anchor + dataviz + redesign-skill as 'co-pilot' + emil-design-eng 'optional final polish layer' \u2014 the co-pilot/optional framing is the menu pattern the assertion forbids."
+    },
+    {
+      "text": "Primary pick is design-master \u2014 the explicit-claim winner under the tiebreak ladder",
+      "passed": true,
+      "evidence": "'Anchor skill: design-master' \u2014 matches the predicted winner, though without ladder reasoning (no skill loaded)."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  },
+  "timing": {
+    "executor_duration_seconds": 50.4
+  }
+}

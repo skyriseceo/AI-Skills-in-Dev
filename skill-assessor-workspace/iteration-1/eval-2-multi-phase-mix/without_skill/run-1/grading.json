@@ -1,0 +1,33 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+      "passed": true,
+      "evidence": "'Phase 1 \u2014 Research: deep-research\u2026 exactly what deep-research is for'."
+    },
+    {
+      "text": "Recommends video-use for the editing/subtitles phase",
+      "passed": true,
+      "evidence": "'Phase 2 \u2014 Editing: video-use\u2026 only skill in the catalog that does video editing'."
+    },
+    {
+      "text": "Orders research before editing and states what the research phase hands to the editing phase",
+      "passed": true,
+      "evidence": "'Strictly sequential; Phase 2's editing decisions\u2026 depend on Phase 1's output'; hand-off spec described ('feed the Phase 1 spec directly into the video-use plan')."
+    },
+    {
+      "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+      "passed": true,
+      "evidence": "'Mode: Assessment only. No skills executed.'; rejection table present. Note: it did search the filesystem for demo.mp4, which is scoping, not execution."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 54.4
+  }
+}

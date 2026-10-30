@@ -1,0 +1,60 @@
+{
+  "skill_name": "skill-assessor",
+  "evals": [
+    {
+      "id": 0,
+      "name": "design-family-tiebreak",
+      "prompt": "I've got a SaaS analytics dashboard at work and honestly it looks like every AI-generated site ever \u2014 same gradients, same cards. I want to redesign it so it feels premium. Which skill or skills should I use for this? Just assess and tell me the plan, don't start the redesign yet.",
+      "expected_output": "Routing plan that picks from the overlapping design-skill family (design-master, impeccable, taste-skill redesign variants), justifies the tiebreak (redesign-specific + anti-generic focus), lists rejected candidates with specific reasons, does not execute.",
+      "files": [],
+      "assertions": [
+        "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output (e.g. a redesign- or anti-generic-focused skill), not an image-generation or brand-kit skill",
+        "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+        "Assessment only: does not begin the redesign or write any UI code",
+        "Output contains an explicit verdict line stating what runs and in what order",
+        "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+        "Primary pick is design-master \u2014 the explicit-claim winner under the tiebreak ladder (its description names 'AI-generated'/premium and dashboards verbatim; specificity-based redesign-skill must appear only as the rejected runner-up)"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "no-skill-simple-task",
+      "prompt": "quick one \u2014 i need to rename a variable `usrCnt` to `userCount` in src/stats.py, its used in like 3 places in that one file. which skill should handle this? assess only",
+      "expected_output": "Either 'no capability \u2014 handle directly' or agent: cavecrew-builder with a delegation-shaped justification. No skill routed; no process/meta skills; rename not performed.",
+      "files": [],
+      "assertions": [
+        "Verdict is 'no capability \u2014 handle directly' (or equivalent), OR routes to agent: cavecrew-builder with an explicitly delegation-shaped justification (bounded 1-2 file mechanical edit / context conservation); does not route to any skill",
+        "Does not recommend process or meta skills (brainstorming, TDD, planning, skill-creator) for the rename",
+        "Does not attempt to perform the rename itself"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "multi-phase-mix",
+      "prompt": "Here's what I need: first figure out what the current best practices are for short-form product demo videos in 2026 (hook timing, captions, pacing \u2014 with sources), then take my raw screen recording demo.mp4 and cut it into a 60s demo with burned-in subtitles following those practices. What skills should I use and in what order? Assess first, don't execute.",
+      "expected_output": "A two-skill mix in phase order: deep-research (research phase, cited findings) then video-use (editing phase), with a statement of what research hands to editing. Rejected candidates listed.",
+      "files": [],
+      "assertions": [
+        "Recommends deep-research (or the session's research skill) for the best-practices phase",
+        "Recommends video-use for the editing/subtitles phase",
+        "Orders research before editing and states what the research phase hands to the editing phase",
+        "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+        "Flags at least one execution blocker or precondition (e.g. demo.mp4 path unverified, target platform/aspect ratio unspecified) without resolving it",
+        "Rejected list is bounded: at most 4 full rejection entries; remaining discarded candidates collapsed into one or more 'Not close:' bucket lines with a shared reason"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "user-named-skill",
+      "prompt": "I want you to use taste-skill:minimalist-skill to redo my personal portfolio landing page (it's a plain HTML/CSS site in ./site). Before you start \u2014 assess the skill routing for this, don't execute yet.",
+      "expected_output": "Honors the user's named skill as the primary pick (user's pick wins), possibly noting close alternatives only in the rejected list; does not silently substitute a different design skill; assessment only.",
+      "files": [],
+      "assertions": [
+        "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+        "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+        "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+        "Assessment only: no redesign work performed"
+      ]
+    }
+  ]
+}

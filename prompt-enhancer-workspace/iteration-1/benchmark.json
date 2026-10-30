@@ -1,0 +1,363 @@
+{
+  "metadata": {
+    "skill_name": "prompt-enhancer",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-07-02T07:06:05Z",
+    "evals_run": [
+      0,
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 57.7,
+        "tokens": 26391,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Enhanced prompt is delivered in a clearly marked copy-paste block, separate from commentary",
+          "passed": true,
+          "evidence": "Under the heading '## Enhanced prompt', the full rewritten prompt is in a fenced code block, with commentary ('What changed and why', 'Optional additions') kept outside it."
+        },
+        {
+          "text": "Enhanced prompt states the intent/goal (raise conversion, Black Friday deadline), not just the task",
+          "passed": true,
+          "evidence": "Block opens with: 'The business goal: checkout conversion needs to go up before Black Friday, so the priority is removing anything that makes shoppers abandon or fail to complete a purchase \u2014 not a visual redesign.'"
+        },
+        {
+          "text": "Enhanced prompt names the specific known bug (coupon field crashes on empty input)",
+          "passed": true,
+          "evidence": "Block says: 'Fix the known bug: the coupon code field crashes when submitted with empty input. Find the root cause, fix it...'"
+        },
+        {
+          "text": "Enhanced prompt defines success criteria or scope boundaries (what 'better' means, what's out of scope)",
+          "passed": true,
+          "evidence": "Block includes both: 'Boundaries: don't redesign the layout, restructure components beyond what the fixes require, or add new features' and 'Done means: the coupon field handles empty, invalid, and valid input without crashing; every bug you fixed has a test or a manual repro step...'"
+        },
+        {
+          "text": "Response includes change notes explaining what changed and why (not just the rewritten prompt)",
+          "passed": true,
+          "evidence": "Dedicated '## What changed and why' section with five bulleted rationales, e.g. 'Stated the intent (conversion before Black Friday, not aesthetics) \u2014 \"make it better\" would otherwise get resolved as a visual polish pass'."
+        },
+        {
+          "text": "Enhanced prompt does not name any specific AI model or vendor",
+          "passed": true,
+          "evidence": "The fenced enhanced-prompt block contains no model or vendor names (no Claude/GPT/Anthropic/OpenAI etc.); it refers only to the app, the bug, and generic 'the model/agent' framing outside the block."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 64.0,
+        "tokens": 26879,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Enhanced system prompt instructs grounding progress claims in actual tool results / evidence (no fabricated status reports)",
+          "passed": true,
+          "evidence": "Prompt block: 'Base every status claim on an actual test run, not on the code looking correct' and 'run the entire suite under Vitest and audit your report against that output.'"
+        },
+        {
+          "text": "Enhanced system prompt includes a concrete verification method (e.g., run the migrated tests, verify at intervals) replacing the vague 'double check your work'",
+          "passed": true,
+          "evidence": "'Migrate incrementally: convert a file or coherent group of files, run those tests with Vitest, fix failures, then move on' and 'A test file counts as migrated only when you have run it under Vitest in this session and seen it pass.'"
+        },
+        {
+          "text": "Enhanced system prompt addresses autonomous operation: proceed without asking, don't end turn on a promise or unfulfilled intent",
+          "passed": true,
+          "evidence": "'no one can answer questions mid-run, so asking and waiting will stall the work' and 'Before ending your turn at any point, check your last paragraph: if it is a plan, a question, or a promise about work you haven't done (\"I'll now\u2026\"), do that work instead.'"
+        },
+        {
+          "text": "Enhanced system prompt defines when stopping/flagging IS appropriate (blocked, irreversible action) rather than pure barrel-through",
+          "passed": true,
+          "evidence": "'End only when the migration is complete and verified, or you are truly blocked on input only a human can provide \u2014 in which case write exactly what you need in MIGRATION_NOTES.md and finish everything not blocked on it'; also skip-and-record protocol for unresolvable files and a hard 'Do not modify production/source code' boundary."
+        },
+        {
+          "text": "The vacuous 'You MUST NOT make mistakes' instruction is removed or replaced with actionable behavior",
+          "passed": true,
+          "evidence": "The phrase does not appear in the enhanced prompt; change notes state: 'Removed \"You MUST NOT make mistakes\" \u2014 unactionable pressure with no behavioral content... Replaced with the concrete mechanism that actually prevents mistakes: incremental convert-run-fix loops.'"
+        },
+        {
+          "text": "Response includes change notes explaining the reasoning behind changes",
+          "passed": true,
+          "evidence": "'## What changed and why' section with eight reasoned bullets, e.g. 'the biggest silent failure mode of overnight migrations is the agent weakening or deleting tests to get green'."
+        },
+        {
+          "text": "Enhanced prompt does not name any specific AI model or vendor",
+          "passed": true,
+          "evidence": "The fenced enhanced-prompt block contains no AI model or vendor names; it speaks of 'You are an autonomous code-migration agent' generically."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 75.1,
+        "tokens": 26692,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Rewrite collapses enumerated ALWAYS/NEVER micro-rules into fewer principle-based instructions with stated reasons",
+          "passed": true,
+          "evidence": "Eight numbered absolutes become four principle paragraphs, each with its reason inline, e.g. 'planning overhead should match the size of the decision' and 'don't fragment a coherent function to hit a line count.' Change notes confirm: 'Replaced the eight ALWAYS/NEVER rules with four principles, each carrying its reason.'"
+        },
+        {
+          "text": "The 'explain your reasoning step by step in your response' instruction is removed or replaced (not kept as-is)",
+          "passed": true,
+          "evidence": "Rewrite instead says 'lead with what you did or found, then the key decisions and their rationale.' Notes: 'Dropped \"explain your reasoning step by step\" \u2014 reasoning models already reason internally... Replaced with a decision-rationale ask.'"
+        },
+        {
+          "text": "The contradiction between 'be concise' and 'extensive comments explaining each line' is identified and resolved",
+          "passed": true,
+          "evidence": "Notes: 'Resolved the concision contradiction \u2014 \"be concise\" fought with \"explain step by step\" and \"comment every line\"; the rewrite defines concision as selectivity... and scopes comments to the non-obvious \"why\".' Rewrite: 'Comment the non-obvious \"why\"; skip comments that restate what the code plainly does.'"
+        },
+        {
+          "text": "Defensive blanket rules (try/catch around every function, 10-line function limit, confirm before every edit) are removed or reframed as judgment-based guidance",
+          "passed": true,
+          "evidence": "All three reframed: 'Handle errors where failure is actually possible (user input, I/O, external calls), not defensively around everything'; 'prefer small, focused functions, but let the logic decide the size'; 'Check with me before doing anything risky or hard to reverse... Ordinary edits... don't need confirmation.'"
+        },
+        {
+          "text": "Rewritten file contains no ALL-CAPS ALWAYS/NEVER/MUST directives (or only for genuine invariants)",
+          "passed": true,
+          "evidence": "The fenced rewritten file contains zero ALL-CAPS directives; all guidance is stated in sentence case with conditions."
+        },
+        {
+          "text": "Response includes change notes explaining why the old prescriptive style degrades output on capable models",
+          "passed": true,
+          "evidence": "'capable models generalize from a well-stated rule; rigid enumerated absolutes written for weaker models suppress the judgment that makes current models good, which is exactly why the file was making outputs worse.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 43.4,
+        "tokens": 17845,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Enhanced prompt is delivered in a clearly marked copy-paste block, separate from commentary",
+          "passed": true,
+          "evidence": "The prompt is introduced with 'ready to paste into an AI coding assistant' and delimited by horizontal rules ('---') on both sides, with commentary in a separate 'Notes on what I changed and why' section. Marginal: it is markdown between separators, not a fenced code block, so the copy boundary is less crisp than a code fence."
+        },
+        {
+          "text": "Enhanced prompt states the intent/goal (raise conversion, Black Friday deadline), not just the task",
+          "passed": true,
+          "evidence": "Prompt block: 'We need the checkout page fixed and improved before Black Friday, with the primary business goal of increasing checkout conversion rate.'"
+        },
+        {
+          "text": "Enhanced prompt names the specific known bug (coupon field crashes on empty input)",
+          "passed": true,
+          "evidence": "Prompt block: 'Critical: coupon field crashes on empty input. Reproduce and fix the crash that occurs when the coupon code field is submitted (or applied) while empty.'"
+        },
+        {
+          "text": "Enhanced prompt defines success criteria or scope boundaries (what 'better' means, what's out of scope)",
+          "passed": true,
+          "evidence": "'Constraints & deliverables' section: 'Don't redesign the visual brand... Don't change pricing, tax, or payment-provider logic beyond what's needed... Summarize at the end: root cause of the coupon crash, every bug found and fixed...'"
+        },
+        {
+          "text": "Response includes change notes explaining what changed and why (not just the rewritten prompt)",
+          "passed": true,
+          "evidence": "'## Notes on what I changed and why' section with five bullets, e.g. 'Split \"better\" into two concrete workstreams \u2014 bug fixes and conversion improvements \u2014 and ordered them'."
+        },
+        {
+          "text": "Enhanced prompt does not name any specific AI model or vendor",
+          "passed": true,
+          "evidence": "The enhanced prompt block contains no AI model or vendor names; it references only React, the app, and generic 'the assistant'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 120.9,
+        "tokens": 319902,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Enhanced system prompt instructs grounding progress claims in actual tool results / evidence (no fabricated status reports)",
+          "passed": true,
+          "evidence": "Prompt block: 'Do not report a batch, phase, or the migration as done without pointing to a test run in this session that proves it. If something is unverified, say so in the log and report \u2014 never claim success on inference.'"
+        },
+        {
+          "text": "Enhanced system prompt includes a concrete verification method (e.g., run the migrated tests, verify at intervals) replacing the vague 'double check your work'",
+          "passed": true,
+          "evidence": "'Run Vitest on exactly that batch and get it green', a recorded pre-migration Jest baseline in .migration/baseline.json, and 'Periodically (every ~5 batches) run the full Vitest suite over everything migrated so far.'"
+        },
+        {
+          "text": "Enhanced system prompt addresses autonomous operation: proceed without asking, don't end turn on a promise or unfulfilled intent",
+          "passed": true,
+          "evidence": "'asking \"Should I\u2026?\" or \"Want me to\u2026?\" blocks the work \u2014 never ask; decide and proceed, recording notable decisions in your run log. End your turn only when the migration is complete or you are blocked on something only a human can provide.'"
+        },
+        {
+          "text": "Enhanced system prompt defines when stopping/flagging IS appropriate (blocked, irreversible action) rather than pure barrel-through",
+          "passed": true,
+          "evidence": "'blocked on something only a human can provide'; quarantine protocol after 3 distinct failed fixes; 'If more than 20% of files end up quarantined, stop converting... make the report's top line say the migration is partial and why'; 'Never touch CI/CD publish or deploy configuration.'"
+        },
+        {
+          "text": "The vacuous 'You MUST NOT make mistakes' instruction is removed or replaced with actionable behavior",
+          "passed": true,
+          "evidence": "Phrase absent from the enhanced prompt; notes state: '\"You MUST NOT make mistakes\" \u2014 unactionable and counterproductive... replaced with the thing that actually prevents mistakes: a concrete verification loop... and a rule against claiming success without evidence.'"
+        },
+        {
+          "text": "Response includes change notes explaining the reasoning behind changes",
+          "passed": true,
+          "evidence": "'## Notes on the changes' with 'What was removed and why' and 'Key additions, and the reasoning' sections, e.g. 'without a recorded baseline, the agent can't distinguish its regressions from pre-existing failures.'"
+        },
+        {
+          "text": "Enhanced prompt does not name any specific AI model or vendor",
+          "passed": true,
+          "evidence": "The fenced enhanced-prompt block (lines 5-124) contains no model or vendor names. Model references ('Recent Claude models', 'Claude API', 'Opus 4.7+') appear only in the commentary/operational notes outside the prompt block."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 45.6,
+        "tokens": 17622,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Rewrite collapses enumerated ALWAYS/NEVER micro-rules into fewer principle-based instructions with stated reasons",
+          "passed": true,
+          "evidence": "Eight absolutes become four themed sections (Planning, Autonomy and safety, Communication, Code quality) with reasons, e.g. 'don't fragment coherent logic just to hit a line count' and 'let unexpected errors propagate to a sensible boundary rather than swallowing them.'"
+        },
+        {
+          "text": "The 'explain your reasoning step by step in your response' instruction is removed or replaced (not kept as-is)",
+          "passed": true,
+          "evidence": "Replaced with: 'Be concise by default. Lead with the outcome; add reasoning only where the decision was non-obvious or the user will need it to review the change.' Change table row 4: 'Reasoning only where the decision is non-obvious.'"
+        },
+        {
+          "text": "The contradiction between 'be concise' and 'extensive comments explaining each line' is identified and resolved",
+          "passed": true,
+          "evidence": "Identified in the intro: 'several of your rules contradict each other (e.g., \"explain reasoning step by step\" + \"write extensive comments\" vs. \"be concise\")' and resolved via 'Comment the why, not the what' plus table row 7: 'Kept, and made compatible with the rest.'"
+        },
+        {
+          "text": "Defensive blanket rules (try/catch around every function, 10-line function limit, confirm before every edit) are removed or reframed as judgment-based guidance",
+          "passed": true,
+          "evidence": "All three reframed: 'Don't blanket-wrap every function in try/catch'; 'Prefer small, focused functions, but let the logic determine the length'; 'Check in first only for: destructive or irreversible actions, changes outside the requested scope... anything touching secrets, auth, payments, or data migrations.'"
+        },
+        {
+          "text": "Rewritten file contains no ALL-CAPS ALWAYS/NEVER/MUST directives (or only for genuine invariants)",
+          "passed": true,
+          "evidence": "The drop-in replacement block contains no ALL-CAPS ALWAYS/NEVER/MUST directives; guidance is conditional sentence-case throughout."
+        },
+        {
+          "text": "Response includes change notes explaining why the old prescriptive style degrades output on capable models",
+          "passed": true,
+          "evidence": "Intro: 'Modern models follow rigid, absolute rules *too* literally... The result is an assistant that's slow, noisy, and produces over-fragmented, over-commented code'; closing principle: 'modern models treat absolutes as literal invariants and will follow them even when they harm the output.' Plus a per-rule change table."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 65.6,
+        "stddev": 8.8097,
+        "min": 57.7,
+        "max": 75.1
+      },
+      "tokens": {
+        "mean": 26654.0,
+        "stddev": 246.2093,
+        "min": 26391,
+        "max": 26879
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 69.9667,
+        "stddev": 44.1233,
+        "min": 43.4,
+        "max": 120.9
+      },
+      "tokens": {
+        "mean": 118456.3333,
+        "stddev": 174457.1004,
+        "min": 17622,
+        "max": 319902
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "-4.4",
+      "tokens": "-91802"
+    }
+  },
+  "notes": []
+}

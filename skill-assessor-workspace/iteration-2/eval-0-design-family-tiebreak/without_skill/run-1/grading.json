@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output (e.g. a redesign- or anti-generic-focused skill), not an image-generation or brand-kit skill",
+      "passed": true,
+      "evidence": "Primary driver design-master ('AI-generated\u2026 needs to feel premium', dashboards) + dataviz companion; imagegen skills set aside."
+    },
+    {
+      "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+      "passed": true,
+      "evidence": "'Set aside' list with reasons (impeccable 'less targeted', aesthetic taste-skills 'only if a specific look is chosen up front')."
+    },
+    {
+      "text": "Assessment only: does not begin the redesign or write any UI code",
+      "passed": true,
+      "evidence": "'No redesign was started.' Plan phrased as proposed steps."
+    },
+    {
+      "text": "Output contains an explicit verdict line stating what runs and in what order",
+      "passed": true,
+      "evidence": "Proposed 5-step ordered plan (critique \u2192 direction \u2192 dataviz \u2192 polish/loop \u2192 optional emil pass) states what runs in what order."
+    },
+    {
+      "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+      "passed": false,
+      "evidence": "Presents taste-skill:redesign-skill as 'Strong alternative / possible addition' and 'Alternative driver\u2026 pick one driver, not both' \u2014 an unresolved either/or left to the user rather than a committed single primary with the runner-up confined to a rejected list."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 1,
+    "total": 5,
+    "pass_rate": 0.8
+  },
+  "timing": {
+    "executor_duration_seconds": 55.2
+  }
+}

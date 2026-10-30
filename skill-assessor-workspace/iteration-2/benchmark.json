@@ -1,0 +1,380 @@
+{
+  "metadata": {
+    "skill_name": "skill-assessor",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-07-02T08:42:15Z",
+    "evals_run": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 75.5,
+        "tokens": 23193,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output (e.g. a redesign- or anti-generic-focused skill), not an image-generation or brand-kit skill",
+          "passed": true,
+          "evidence": "Primary is taste-skill:redesign-skill ('upgrades existing websites and apps to premium quality\u2026 identifies generic AI patterns'); imagegen skills rejected as 'wrong output mode'."
+        },
+        {
+          "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+          "passed": true,
+          "evidence": "design-master rejected with tiebreak rationale and an explicit flip condition ('Would flip on a greenfield build or motion-heavy brief'); minimalist/brutalist rejected for imposing a predetermined aesthetic."
+        },
+        {
+          "text": "Assessment only: does not begin the redesign or write any UI code",
+          "passed": true,
+          "evidence": "'Per the user's just assess instruction, no skill was executed'; no code in output."
+        },
+        {
+          "text": "Output contains an explicit verdict line stating what runs and in what order",
+          "passed": true,
+          "evidence": "'**Verdict:** Run taste-skill:redesign-skill as primary with dataviz governing the chart layer; execution is paused\u2026'"
+        },
+        {
+          "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+          "passed": true,
+          "evidence": "Single primary (redesign-skill) + one genuinely-distinct-layer support (dataviz); runner-up design-master appears only under Considered and rejected."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 60.2,
+        "tokens": 21449,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Verdict is 'no skill \u2014 handle directly' (or equivalent): does not force any skill onto a trivial single-file rename",
+          "passed": true,
+          "evidence": "Plan: '1. No skill \u2014 handle directly \u2014 one Read\u2026 then Edit with replace_all'; Verdict repeats it."
+        },
+        {
+          "text": "Does not recommend process or meta skills (brainstorming, TDD, planning, skill-creator) for the rename",
+          "passed": true,
+          "evidence": "TDD/brainstorming/systematic-debugging appear only in rejected list with contract-miss reasons."
+        },
+        {
+          "text": "Does not attempt to perform the rename itself",
+          "passed": true,
+          "evidence": "'Per the assess only instruction, no rename was executed'; also flagged blocker that src/stats.py doesn't exist in cwd."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 54.9,
+        "tokens": 21678,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+          "passed": true,
+          "evidence": "Plan 1: deep-research \u2014 'cited best-practices findings\u2026 Direct contract match'."
+        },
+        {
+          "text": "Recommends video-use for the editing/subtitles phase",
+          "passed": true,
+          "evidence": "Plan 2: video-use \u2014 'transcribe, cut to 60s, and burn subtitles'."
+        },
+        {
+          "text": "Orders research before editing and states what the research phase hands to the editing phase",
+          "passed": true,
+          "evidence": "Two-phase order fixed; 'Output becomes the editing spec' / 'Phase 1 spec as the creative brief'."
+        },
+        {
+          "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+          "passed": true,
+          "evidence": "'no skills were run'; rejected list includes brainstorming, plain WebSearch, design family, build, dataviz, animation-vocabulary."
+        },
+        {
+          "text": "Flags at least one execution blocker or precondition (e.g. demo.mp4 path unverified, target platform/aspect ratio unspecified) without resolving it",
+          "passed": true,
+          "evidence": "'**Blocker:** demo.mp4 does not exist in the working directory\u2026 Phase 2 cannot run until the raw recording is supplied.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 73.4,
+        "tokens": 22213,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+          "passed": true,
+          "evidence": "Plan 1: taste-skill:minimalist-skill \u2014 'the user named it, this is an instruction rather than an open routing question\u2026 not a contract miss'."
+        },
+        {
+          "text": "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+          "passed": true,
+          "evidence": "redesign-skill tension surfaced in rejected list with explicit flip condition ('Would flip if the site turned out large/functionality-heavy')."
+        },
+        {
+          "text": "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+          "passed": true,
+          "evidence": "Single plan; '**Verdict:** Run taste-skill:minimalist-skill alone once the user resolves the missing ./site directory'."
+        },
+        {
+          "text": "Assessment only: no redesign work performed",
+          "passed": true,
+          "evidence": "'No execution was performed, as requested.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 55.2,
+        "tokens": 18242,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output (e.g. a redesign- or anti-generic-focused skill), not an image-generation or brand-kit skill",
+          "passed": true,
+          "evidence": "Primary driver design-master ('AI-generated\u2026 needs to feel premium', dashboards) + dataviz companion; imagegen skills set aside."
+        },
+        {
+          "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+          "passed": true,
+          "evidence": "'Set aside' list with reasons (impeccable 'less targeted', aesthetic taste-skills 'only if a specific look is chosen up front')."
+        },
+        {
+          "text": "Assessment only: does not begin the redesign or write any UI code",
+          "passed": true,
+          "evidence": "'No redesign was started.' Plan phrased as proposed steps."
+        },
+        {
+          "text": "Output contains an explicit verdict line stating what runs and in what order",
+          "passed": true,
+          "evidence": "Proposed 5-step ordered plan (critique \u2192 direction \u2192 dataviz \u2192 polish/loop \u2192 optional emil pass) states what runs in what order."
+        },
+        {
+          "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+          "passed": false,
+          "evidence": "Presents taste-skill:redesign-skill as 'Strong alternative / possible addition' and 'Alternative driver\u2026 pick one driver, not both' \u2014 an unresolved either/or left to the user rather than a committed single primary with the runner-up confined to a rejected list."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 33.8,
+        "tokens": 16990,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Verdict is 'no skill \u2014 handle directly' (or equivalent): does not force any skill onto a trivial single-file rename",
+          "passed": true,
+          "evidence": "'Verdict: no skill should handle this' \u2014 direct Edit with replace_all recommended."
+        },
+        {
+          "text": "Does not recommend process or meta skills (brainstorming, TDD, planning, skill-creator) for the rename",
+          "passed": true,
+          "evidence": "superpowers brainstorming/TDD/plans explicitly ruled out."
+        },
+        {
+          "text": "Does not attempt to perform the rename itself",
+          "passed": true,
+          "evidence": "'Recommended execution (not performed, per assess only)'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 56.7,
+        "tokens": 18774,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends deep-research (or the session's research skill) for the best-practices phase",
+          "passed": true,
+          "evidence": "'1. deep-research \u2014 for the 2026 short-form demo best practices'."
+        },
+        {
+          "text": "Recommends video-use for the editing/subtitles phase",
+          "passed": true,
+          "evidence": "'2. video-use \u2014 for the edit. Its scope matches almost verbatim'."
+        },
+        {
+          "text": "Orders research before editing and states what the research phase hands to the editing phase",
+          "passed": true,
+          "evidence": "'strictly sequential\u2026 the edit brief depends on the research output'; brief parameterized by Phase 1 findings."
+        },
+        {
+          "text": "Assessment only: does not run searches or edit video; lists at least one rejected candidate",
+          "passed": true,
+          "evidence": "'No research or editing was executed'; rejected list covers browser automation, design skills, build/superpowers, meta tooling."
+        },
+        {
+          "text": "Flags at least one execution blocker or precondition (e.g. demo.mp4 path unverified, target platform/aspect ratio unspecified) without resolving it",
+          "passed": true,
+          "evidence": "Blockers: missing demo.mp4, unknown narration audio, unconfirmed platform/aspect ratio."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 65.8,
+        "tokens": 19215,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+          "passed": true,
+          "evidence": "'Routing verdict: taste-skill:minimalist-skill\u2026 should be honored as the primary directive'."
+        },
+        {
+          "text": "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+          "passed": true,
+          "evidence": "redesign-skill overlap discussed openly ('shouldn't replace the user's explicit choice; its audit-first habit is worth borrowing informally')."
+        },
+        {
+          "text": "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+          "passed": true,
+          "evidence": "One plan, explicit routing verdict; no either/or menu ('should not be stacked')."
+        },
+        {
+          "text": "Assessment only: no redesign work performed",
+          "passed": true,
+          "evidence": "'No execution was performed.'"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 66.0,
+        "stddev": 10.031,
+        "min": 54.9,
+        "max": 75.5
+      },
+      "tokens": {
+        "mean": 22133.25,
+        "stddev": 775.6461,
+        "min": 21449,
+        "max": 23193
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.95,
+        "stddev": 0.1,
+        "min": 0.8,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 52.875,
+        "stddev": 13.5517,
+        "min": 33.8,
+        "max": 65.8
+      },
+      "tokens": {
+        "mean": 18305.25,
+        "stddev": 962.8525,
+        "min": 16990,
+        "max": 19215
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.05",
+      "time_seconds": "+13.1",
+      "tokens": "+3828"
+    }
+  },
+  "notes": "Analyst pass, iteration 2: (1) With-skill 17/17 (100%), baseline 16/17 (95%). Iteration-1 fixes verified in behavior: eval-0 with-skill committed to one primary with a flip condition on the runner-up (new decisiveness rule), used exact plugin-prefixed names, and eval-1/2/3 with-skill runs all produced the new Blockers line \u2014 eval-1 even caught that src/stats.py doesn't exist. (2) The only failure is the intended discriminator: eval-0 baseline again hedged ('Alternative driver\u2026 pick one driver, not both'), confirming decisiveness is skill-induced, not model-default. (3) Routing nondeterminism observed: eval-0 with-skill picked taste-skill:redesign-skill this iteration vs design-master in iteration 1 \u2014 the 'specificity wins' and 'explicit claim wins' heuristics pull opposite ways for this pair. Both picks are defensible and both were committed with stated flip conditions, so treated as acceptable variance, but a user wanting stable routing could add a tie-priority note to the heuristics. (4) Baseline improved vs iteration 1 on blocker-flagging without prompting (eval-2, eval-3) \u2014 that assertion no longer discriminates; the decisiveness assertion is now the load-bearing one. (5) With-skill overhead steady at ~3-4k tokens and ~15-20s per run for reading SKILL.md + heuristics."
+}

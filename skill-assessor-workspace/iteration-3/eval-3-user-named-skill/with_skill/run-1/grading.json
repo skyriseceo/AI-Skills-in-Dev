@@ -1,0 +1,33 @@
+{
+  "expectations": [
+    {
+      "text": "Primary plan entry is taste-skill:minimalist-skill (the user-named skill), not a substituted alternative",
+      "passed": true,
+      "evidence": "'1. skill: taste-skill:minimalist-skill \u2014 sole design direction\u2026 Per the tiebreak ladder, the user's pick is an instruction and routes as told.'"
+    },
+    {
+      "text": "If any tension with other design skills is noted, it appears as a flag or rejected-list entry \u2014 the named skill is not silently overridden",
+      "passed": true,
+      "evidence": "redesign-skill named 'strongest runner-up on merit\u2026 Loses only to the user's explicit pick' with flip condition \u2014 surfaced, not substituted."
+    },
+    {
+      "text": "Commits to one plan (no either/or menu) and includes an explicit verdict line",
+      "passed": true,
+      "evidence": "Single-entry plan; '**Verdict:** Run taste-skill:minimalist-skill alone once ./site is located.'"
+    },
+    {
+      "text": "Assessment only: no redesign work performed",
+      "passed": true,
+      "evidence": "'not executing now per the explicit assess-only request'."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 70.0
+  }
+}

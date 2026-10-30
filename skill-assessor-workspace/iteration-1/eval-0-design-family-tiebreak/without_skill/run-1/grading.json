@@ -1,0 +1,33 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output (e.g. a redesign- or anti-generic-focused skill), not an image-generation or brand-kit skill",
+      "passed": true,
+      "evidence": "Primary taste-skill:redesign-skill + co-primary design-master; imagegen/brandkit skipped as 'overkill for restyling a working product'."
+    },
+    {
+      "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+      "passed": true,
+      "evidence": "'Skills to skip' section with reasons, e.g. frontend-design/taste-skill 'redundant with design-master + redesign-skill, which are more specific to your case'."
+    },
+    {
+      "text": "Assessment only: does not begin the redesign or write any UI code",
+      "passed": true,
+      "evidence": "Plan is prefixed 'when you're ready to start'; no code written."
+    },
+    {
+      "text": "Output contains an explicit verdict line stating what runs and in what order",
+      "passed": false,
+      "evidence": "No single verdict; 'Bottom line' offers two alternative combos ('minimum viable' vs 'best-fit full combo' of 3-5 skills) and defers the actual pick to the user. Execution order lives in a separate plan section, and primary vs co-primary is left unresolved."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  },
+  "timing": {
+    "executor_duration_seconds": 54.9
+  }
+}

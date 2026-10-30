@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "eval_name": "de-prescribe-skill-instructions",
+  "prompt": "This slash-command instruction file I wrote a year ago for an older AI model seems to make outputs worse now, not better. Enhance it — no need to ask me questions, use your judgment. The file: \"ALWAYS follow these steps EXACTLY: 1. NEVER write any code before making a plan. 2. ALWAYS list at least 5 possible approaches. 3. You MUST ask the user to confirm before every file edit. 4. ALWAYS explain your reasoning step by step in your response. 5. NEVER use functions longer than 10 lines. 6. ALWAYS add try/catch around every function. 7. Be concise. 8. ALWAYS write extensive comments explaining each line.\"",
+  "assertions": [
+    "Rewrite collapses enumerated ALWAYS/NEVER micro-rules into fewer principle-based instructions with stated reasons",
+    "The 'explain your reasoning step by step in your response' instruction is removed or replaced (not kept as-is)",
+    "The contradiction between 'be concise' and 'extensive comments explaining each line' is identified and resolved",
+    "Defensive blanket rules (try/catch around every function, 10-line function limit, confirm before every edit) are removed or reframed as judgment-based guidance",
+    "Rewritten file contains no ALL-CAPS ALWAYS/NEVER/MUST directives (or only for genuine invariants)",
+    "Response includes change notes explaining why the old prescriptive style degrades output on capable models"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "Recommends a design-family skill whose scope matches redesigning an existing UI to avoid generic/AI-looking output, not an image-generation or brand-kit skill",
+      "passed": true,
+      "evidence": "Primary skill: taste-skill:redesign-skill ('identifies generic AI patterns' named verbatim); imagegen/brandkit bucketed as 'wrong artifact \u2014 images, not code'."
+    },
+    {
+      "text": "Lists at least one considered-and-rejected skill with a specific, task-grounded reason (not just 'less relevant')",
+      "passed": true,
+      "evidence": "design-master, impeccable, soft-skill, frontend-design each rejected with reason + flip condition."
+    },
+    {
+      "text": "Assessment only: does not begin the redesign or write any UI code",
+      "passed": true,
+      "evidence": "'no redesign work was started' \u2014 question-form request, plan is deliverable."
+    },
+    {
+      "text": "Output contains an explicit verdict line stating what runs and in what order",
+      "passed": true,
+      "evidence": "'**Verdict:** Run taste-skill:redesign-skill as primary with dataviz supporting the chart work \u2014 held pending the codebase location.'"
+    },
+    {
+      "text": "Commits to exactly one primary skill \u2014 no 'co-primary', 'either/or', or alternative-combo menu; runner-up appears only in the rejected list",
+      "passed": true,
+      "evidence": "Single primary + phase-distinct support; design-master confined to rejected list with explicit flip condition."
+    },
+    {
+      "text": "Primary pick is design-master \u2014 the explicit-claim winner under the tiebreak ladder (specificity-based redesign-skill must appear only as the rejected runner-up)",
+      "passed": false,
+      "evidence": "Primary is taste-skill:redesign-skill. The run applied the ladder explicitly but judged BOTH descriptions to make the explicit claim (redesign-skill names 'identifies generic AI patterns' verbatim), so rung 3 tied and rung 4 (specificity) decided. Same pick as iteration 2 \u2014 routing is stable, just not on the winner this assertion predicted."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  },
+  "timing": {
+    "executor_duration_seconds": 73.3
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Primary pick is design-master",
+        "reason": "The assertion encoded a predicted ladder outcome, but rung 3 legitimately ties (both descriptions claim the generic-AI trigger), making rung 4 decide for redesign-skill. The spec's actual goal was deterministic routing, which held across iterations 2 and 3. Consider asserting stability ('primary is taste-skill:redesign-skill with ladder-rung reasoning shown') instead of design-master."
+      }
+    ],
+    "overall": "Skill behavior correct; assertion's expected winner was wrong."
+  }
+}
